@@ -1,6 +1,6 @@
-# Baklib CMS — Blog theme
+# Baklib CMS — Podcasts theme
 
-A lightweight **blog / news / announcements** theme for Baklib-powered sites. It ships with two home layouts (card grid and list), article pages with tags and optional feedback, search, and Tailwind CSS–based styling.
+A lightweight **podcast / audio collection** theme for Baklib-powered sites. It ships with two home layouts (card grid and list), content pages with tags and optional feedback, search, and Tailwind CSS–based styling.
 
 Default **seed data is in English** (`site.language: en`) so new sites start with an international-friendly baseline. Switch the language in `seeds/001_site.yml` if you prefer another default.
 

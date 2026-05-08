@@ -1,0 +1,29 @@
+{%- comment -%}
+  Static waveform background inspired by Tailwind UI Transmit.
+  We keep IDs unique per page render to avoid SVG defs collisions.
+{%- endcomment -%}
+
+{%- assign waveform_seed = page.id | default: 'site' -%}
+{%- capture waveform_id -%}waveform-{{ waveform_seed }}{%- endcapture -%}
+
+<svg aria-hidden="true" class="{{ class | default: '' }}" viewBox="0 0 1200 80" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="{{ waveform_id }}-fade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="40%" stop-color="white" />
+      <stop offset="100%" stop-color="black" />
+    </linearGradient>
+    <linearGradient id="{{ waveform_id }}-gradient" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#4989E8" />
+      <stop offset="50%" stop-color="#6159DA" />
+      <stop offset="100%" stop-color="#FF54AD" />
+    </linearGradient>
+    <pattern id="{{ waveform_id }}-pattern" width="4" height="80" patternUnits="userSpaceOnUse">
+      <rect x="2" y="0" width="2" height="80" fill="url(#{{ waveform_id }}-fade)" opacity="0.9" />
+    </pattern>
+    <mask id="{{ waveform_id }}-mask">
+      <rect width="100%" height="100%" fill="url(#{{ waveform_id }}-pattern)" />
+    </mask>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#{{ waveform_id }}-gradient)" mask="url(#{{ waveform_id }}-mask)" opacity="0.25" />
+</svg>
+

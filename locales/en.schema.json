@@ -1,17 +1,29 @@
 {
-  "theme_label": "Blog",
-  "theme_description": "A small CMS for building content sites with blog posts, news updates, and announcements.",
+  "theme_label": "podcasts",
+  "theme_description": "A podcast and audio collection site.",
   "templates": {
     "page": {
-      "name": "Article Page",
-      "description": "Article page template",
+      "name": "Episode",
+      "description": "Episode detail page (show notes + audio).",
       "settings": {
         "title": {
           "label": "Title",
-          "info": "Article title displayed above the content"
+          "info": "Episode title displayed above the content"
+        },
+        "episode_number": {
+          "label": "Episode number",
+          "info": "Shown as a prefix before the title (e.g. 5)"
         },
         "description": {
           "label": "Summary"
+        },
+        "audio_src": {
+          "label": "Audio URL",
+          "info": "Direct URL to the audio file (mp3, m4a, etc.)"
+        },
+        "audio_type": {
+          "label": "Audio MIME type",
+          "info": "Optional. Example: audio/mpeg"
         },
         "tags": {
           "label": "Tags"
@@ -20,7 +32,16 @@
           "label": "Cover Image"
         },
         "content": {
-          "label": "Page Content"
+          "label": "Show notes"
+        }
+      }
+    },
+    "channel": {
+      "name": "Channel",
+      "description": "A channel page that lists its episodes.",
+      "settings": {
+        "description": {
+          "label": "Description"
         }
       }
     },

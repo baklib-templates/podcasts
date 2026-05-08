@@ -1,36 +1,28 @@
-{% assign sort_mode = params.sort | default: 'published_desc' %}
-{% unless sort_mode == 'published_asc' %}
-  {% assign sort_mode = 'published_desc' %}
-{% endunless %}
+{%- assign channels = site.pages['/'].children_in_list -%}
+{%- assign current_channel = channels.first -%}
+{%- assign episodes = current_channel.children_in_list | default: empty | order_by: '-published_at' -%}
 
-{% case sort_mode %}
-  {% when 'published_asc' %}
-    {% assign sort_field = 'published_at' %}
-  {% else %}
-    {% assign sort_field = '-published_at' %}
-{% endcase %}
+<div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
+  <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-8 xl:px-12">
+    <h1 class="text-2xl/7 font-bold text-slate-900">{{ site.settings.episodes_label | default: 'Episodes' }}</h1>
 
-{% assign pages = site.pages['/'].children_in_list | order_by: sort_field %}
-
-<div class="flex-1 bg-white">
-  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-    {% render 'news_toolbar', sort_base: site.index_path, sort_mode: sort_mode %}
-
-    {% paginate_tag pages, per: 9 %}
-      <div class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-        {% for article in pages %}
-          {% render 'card_grid', page: article %}
-        {% else %}
-          <div class="col-span-full py-24 text-center text-sm text-slate-500">{{ 'generic.empty' | t }}</div>
-        {% endfor %}
+    {%- if channels and channels.size > 1 -%}
+      <div class="mt-4 flex flex-wrap gap-3 text-sm/6 font-medium text-slate-600">
+        {%- for ch in channels -%}
+          <a href="{{ ch.path }}" class="hover:text-slate-900">{{ ch.link_text }}</a>
+        {%- endfor -%}
       </div>
+    {%- endif -%}
+  </div>
 
-      {% if paginate.total_count > 0 %}
-        <div class="mt-14 flex justify-center border-t border-slate-100 pt-10">
-          {% render 'paginate', paginate: paginate %}
-        </div>
-      {% endif %}
-    {% endpaginate_tag %}
+  <div class="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
+    {%- for ep in episodes -%}
+      {% render 'transmit_episode_entry', page: ep %}
+    {%- else -%}
+      <div class="mx-auto px-4 py-16 text-sm text-slate-500 sm:px-6 md:max-w-2xl md:px-4 lg:px-8 xl:px-12">
+        {{ 'generic.empty' | t }}
+      </div>
+    {%- endfor -%}
   </div>
 </div>
 
@@ -42,6 +34,6 @@
     "preview_image_urls": [
       "images/theme/index-card.png"
     ],
-    "sub_page_templates": ["page"]
+    "sub_page_templates": ["channel"]
   }
 {% endschema %}

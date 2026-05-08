@@ -1,17 +1,29 @@
 {
-  "theme_label": "部落格、新聞、通知公告內容站點",
-  "theme_description": "小型 CMS 內容管理系統，用於建置部落格文章、新聞動態、通知公告等內容站點。",
+  "theme_label": "podcasts",
+  "theme_description": "一個播客、音訊集合站",
   "templates": {
     "page": {
-      "name": "文章頁面",
-      "description": "文章頁面模板",
+      "name": "單集頁面",
+      "description": "播客單集詳情頁（Show notes + 音訊）。",
       "settings": {
         "title": {
           "label": "標題",
-          "info": "顯示在正文上方的文章標題"
+          "info": "顯示在正文上方的節目標題"
+        },
+        "episode_number": {
+          "label": "期數",
+          "info": "用於標題前的數字前綴（例如：5）"
         },
         "description": {
           "label": "摘要"
+        },
+        "audio_src": {
+          "label": "音訊地址",
+          "info": "音訊檔案的直鏈（mp3、m4a 等）"
+        },
+        "audio_type": {
+          "label": "音訊類型",
+          "info": "可選，例如：audio/mpeg"
         },
         "tags": {
           "label": "標籤"
@@ -20,7 +32,16 @@
           "label": "封面圖"
         },
         "content": {
-          "label": "頁面內容"
+          "label": "Show notes"
+        }
+      }
+    },
+    "channel": {
+      "name": "欄目頁面",
+      "description": "欄目頁，用於展示該欄目下的單集列表。",
+      "settings": {
+        "description": {
+          "label": "欄目簡介"
         }
       }
     },

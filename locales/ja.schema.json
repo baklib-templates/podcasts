@@ -1,17 +1,29 @@
 {
-  "theme_label": "ブログ・ニュース・お知らせサイト",
-  "theme_description": "ブログ記事、ニュース更新、通知/お知らせを構築できる小型 CMS コンテンツ管理システム。",
+  "theme_label": "podcasts",
+  "theme_description": "ポッドキャスト／音声コレクションサイト。",
   "templates": {
     "page": {
-      "name": "記事ページ",
-      "description": "記事ページテンプレート",
+      "name": "エピソード",
+      "description": "エピソード詳細（Show notes + 音声）。",
       "settings": {
         "title": {
           "label": "タイトル",
-          "info": "コンテンツ上部に表示される記事タイトル"
+          "info": "コンテンツ上部に表示されるエピソードタイトル"
+        },
+        "episode_number": {
+          "label": "回数",
+          "info": "タイトル前に表示する番号（例：5）"
         },
         "description": {
           "label": "概要"
+        },
+        "audio_src": {
+          "label": "音声URL",
+          "info": "音声ファイルの直リンク（mp3、m4a など）"
+        },
+        "audio_type": {
+          "label": "音声MIMEタイプ",
+          "info": "任意。例：audio/mpeg"
         },
         "tags": {
           "label": "タグ"
@@ -20,7 +32,16 @@
           "label": "カバー画像"
         },
         "content": {
-          "label": "ページコンテンツ"
+          "label": "Show notes"
+        }
+      }
+    },
+    "channel": {
+      "name": "チャンネル",
+      "description": "エピソード一覧を表示するチャンネルページ。",
+      "settings": {
+        "description": {
+          "label": "説明"
         }
       }
     },

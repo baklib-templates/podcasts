@@ -1,0 +1,110 @@
+<div
+  x-data
+  x-show="$store.player.episode"
+  class="flex items-center gap-6 bg-white/90 px-4 py-4 shadow-sm ring-1 shadow-slate-200/80 ring-slate-900/5 backdrop-blur-xs md:px-6"
+>
+  <div class="hidden md:block">
+    <button
+      type="button"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-white hover:bg-slate-900 focus:outline-none focus:ring-3 focus:ring-slate-700 focus:ring-offset-4"
+      @click="$store.player.toggle()"
+      :aria-label="$store.player.playing ? 'Pause' : 'Play'"
+    >
+      <span x-show="$store.player.playing" aria-hidden="true">❚❚</span>
+      <span x-show="!$store.player.playing" aria-hidden="true">▶</span>
+    </button>
+  </div>
+
+  <div class="mb-[env(safe-area-inset-bottom)] flex flex-1 flex-col gap-3 overflow-hidden p-1">
+    <a
+      :href="$store.player.episode ? $store.player.episode.path : '#'"
+      class="truncate text-center text-sm/6 font-bold md:text-left"
+      :title="$store.player.episode ? $store.player.episode.title : ''"
+      x-text="$store.player.episode ? $store.player.episode.title : ''"
+    ></a>
+
+    <div class="flex justify-between gap-6">
+      <div class="flex items-center md:hidden">
+        <button
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-md text-slate-700 hover:bg-slate-100"
+          @click="$store.player.toggleMute()"
+          :aria-label="$store.player.muted ? 'Unmute' : 'Mute'"
+        >
+          <span x-show="$store.player.muted" aria-hidden="true">🔇</span>
+          <span x-show="!$store.player.muted" aria-hidden="true">🔊</span>
+        </button>
+      </div>
+
+      <div class="flex flex-none items-center gap-4">
+        <button
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-md text-slate-700 hover:bg-slate-100"
+          @click="$store.player.seekBy(-10)"
+          aria-label="Rewind 10 seconds"
+        >
+          ↺10
+        </button>
+        <div class="md:hidden">
+          <button
+            type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-white hover:bg-slate-900"
+            @click="$store.player.toggle()"
+            :aria-label="$store.player.playing ? 'Pause' : 'Play'"
+          >
+            <span x-show="$store.player.playing" aria-hidden="true">❚❚</span>
+            <span x-show="!$store.player.playing" aria-hidden="true">▶</span>
+          </button>
+        </div>
+        <button
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-md text-slate-700 hover:bg-slate-100"
+          @click="$store.player.seekBy(30)"
+          aria-label="Forward 30 seconds"
+        >
+          30↻
+        </button>
+      </div>
+
+      <div class="flex flex-1 items-center gap-3">
+        <input
+          type="range"
+          min="0"
+          :max="$store.player.duration || 0"
+          step="1"
+          class="transmit-range flex-1"
+          :value="$store.player.seeking ? $store.player.seeking : $store.player.currentTime"
+          @input="$store.player.setSeeking($event.target.value)"
+          @change="$store.player.commitSeek($event.target.value)"
+          aria-label="Current time"
+        />
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="flex items-center">
+          <button
+            type="button"
+            class="rounded-md px-2 py-1 text-xs font-bold text-slate-700 hover:bg-slate-100"
+            @click="$store.player.cyclePlaybackRate()"
+            :aria-label="'Playback rate ' + $store.player.playbackRate + 'x'"
+          >
+            <span x-text="$store.player.playbackRate + 'x'"></span>
+          </button>
+        </div>
+
+        <div class="hidden items-center md:flex">
+          <button
+            type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-md text-slate-700 hover:bg-slate-100"
+            @click="$store.player.toggleMute()"
+            :aria-label="$store.player.muted ? 'Unmute' : 'Mute'"
+          >
+            <span x-show="$store.player.muted" aria-hidden="true">🔇</span>
+            <span x-show="!$store.player.muted" aria-hidden="true">🔊</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

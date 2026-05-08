@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html class="scroll-smooth bg-white" lang="{{ site.language }}">
+<html class="h-full bg-white antialiased" lang="{{ site.language }}">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Baklib">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% meta_tags %}
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap">
     {{ 'stylesheets/application.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
     {{ 'baklib/shared/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
     {{ 'baklib/shared/main.js' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
@@ -13,21 +15,22 @@
     {% if false %} {{ 'javascripts/cdn.tailwindcss.js' | asset_url | script_tag: data-turbo-track: 'reload' }} {% endif %}
     {{ site.settings.head_html }}
   </head>
-  <body id="js--body" class="flex min-h-screen flex-col bg-slate-50 antialiased text-slate-600">
-    <div class="flex-0">
-      {% if site.settings.is_allow_header %}
-        {% render 'header' %}
-      {% endif %}
-    </div>
+  <body id="js--body" class="flex min-h-full">
+    <div class="w-full">
+      {% render 'transmit_sidebar' %}
 
-    <main class="relative flex min-h-0 flex-1 flex-col bg-slate-50">
-      {{ content_for_layout }}
-    </main>
+      <main class="border-t border-slate-200 lg:relative lg:mb-28 lg:ml-112 lg:border-t-0 xl:ml-120">
+        {% render 'transmit_waveform', class: 'absolute top-0 left-0 h-20 w-full' %}
+        <div class="relative">
+          {{ content_for_layout }}
+        </div>
+      </main>
 
-    <div class="flex-0">
-      {% if site.settings.is_allow_footer %}
-        {% render 'footer' %}
-      {% endif %}
+      <div class="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
+        {% render 'transmit_player_bar' %}
+      </div>
+
+      <audio id="js-audio-player" preload="metadata"></audio>
     </div>
   </body>
 </html>

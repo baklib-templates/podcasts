@@ -7,6 +7,11 @@
 # Ignore uploaded files in development.
 .DS_Store
 dump.rdb
-# Ignore master key for decrypting credentials and more.
+
+#忽略开发时产生的资源文件
+/data/*
+/dist/
 /node_modules/
+/yarn-error.log
+/yarn-debug.log
 /yarn-error.log

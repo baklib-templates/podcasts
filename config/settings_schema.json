@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "blog",
-    "theme_label": "t:schema.theme_label",
-    "theme_description": "t:schema.theme_description",
+    "theme_name": "podcasts",
+    "theme_label": "podcasts",
+    "theme_description": "一个播客、音频集合站",
     "theme_version": "2.0.2",
     "theme_syntax_version": "v2",
     "theme_scope": "cms",
@@ -106,6 +106,95 @@
         "type": "checkbox",
         "label": "t:schema.generic.settings.is_allow_footer.label",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "Podcast",
+    "settings": [
+      {
+        "id": "poster_image_url",
+        "type": "image_picker",
+        "ratio": "1:1",
+        "width": 800,
+        "label": "Poster image"
+      },
+      {
+        "id": "podcast_title",
+        "type": "text",
+        "label": "Podcast title"
+      },
+      {
+        "id": "podcast_tagline",
+        "type": "textarea",
+        "label": "Tagline"
+      },
+      {
+        "id": "podcast_about",
+        "type": "textarea",
+        "to_markdown": true,
+        "label": "About"
+      },
+      {
+        "id": "podcast_hosts",
+        "type": "text",
+        "label": "Hosts (text)"
+      },
+      {
+        "id": "spotify_url",
+        "type": "text",
+        "label": "Spotify URL"
+      },
+      {
+        "id": "apple_podcast_url",
+        "type": "text",
+        "label": "Apple Podcast URL"
+      },
+      {
+        "id": "overcast_url",
+        "type": "text",
+        "label": "Overcast URL"
+      },
+      {
+        "id": "rss_url",
+        "type": "text",
+        "label": "RSS URL"
+      },
+      {
+        "id": "episodes_label",
+        "type": "text",
+        "label": "Episodes label",
+        "default": "Episodes"
+      },
+      {
+        "id": "listen_label",
+        "type": "text",
+        "label": "Listen label",
+        "default": "Listen"
+      },
+      {
+        "id": "show_notes_label",
+        "type": "text",
+        "label": "Show notes label",
+        "default": "Show notes"
+      },
+      {
+        "id": "about_label",
+        "type": "text",
+        "label": "About label",
+        "default": "About"
+      },
+      {
+        "id": "show_more_label",
+        "type": "text",
+        "label": "Show more label",
+        "default": "Show more"
+      },
+      {
+        "id": "hosted_by_label",
+        "type": "text",
+        "label": "Hosted by label",
+        "default": "Hosted by"
       }
     ]
   },

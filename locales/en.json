@@ -61,34 +61,34 @@
     "pages": {
       "home": {
         "settings": {
-          "title": "Latest posts",
-          "description": "Blog posts, news, and announcements in one place.<br class=\"hidden sm:inline\"/>Stay on top of what matters."
+          "title": "Latest episodes",
+          "description": "Podcast episodes and audio collections in one place.<br class=\"hidden sm:inline\"/>Stay up to date with what matters."
         }
       },
       "children": [
         {
           "slug": "how-to-write-a-good-post",
-          "name": "How to write a strong post: structure and checklist",
+          "name": "How to publish a great episode: structure and checklist",
           "settings": {
-            "title": "How to write a strong post: structure and checklist",
-            "description": "From headline to body—a practical structure and checklist for blog and news content.",
+            "title": "How to publish a great episode: structure and checklist",
+            "description": "From title to show notes—a practical structure and checklist for podcast publishing.",
             "tags": [
-              "Blog"
+              "Podcast"
             ],
-            "content": "<h2>Suggested structure</h2>\n<ol>\n<li><strong>Headline</strong>: clear topic and reader benefit</li>\n<li><strong>Lead</strong>: 1–2 sentences for context and takeaway</li>\n<li><strong>Body</strong>: problem → approach → examples → caveats</li>\n<li><strong>Close</strong>: recap key points and next steps</li>\n</ol>\n\n<h2>Checklist</h2>\n<ul>\n<li>Is the audience and scenario explicit?</li>\n<li>Are there reusable steps or templates?</li>\n<li>Do you add visuals, code, or screenshots where helpful?</li>\n<li>Is it easy to find later (tags, summary, cover image)?</li>\n</ul>\n"
+            "content": "<h2>Suggested structure</h2>\n<ol>\n<li><strong>Episode title</strong>: clear topic and listener benefit</li>\n<li><strong>Intro</strong>: 1–2 sentences for context and takeaway</li>\n<li><strong>Chapters</strong>: agenda → discussion → examples → takeaways</li>\n<li><strong>Outro</strong>: recap key points and next steps</li>\n</ol>\n\n<h2>Checklist</h2>\n<ul>\n<li>Is the target audience explicit?</li>\n<li>Do you provide clear show notes and timestamps?</li>\n<li>Do you include transcript/links where helpful?</li>\n<li>Is it easy to discover later (tags, summary, cover image)?</li>\n</ul>\n"
           }
         },
         {
           "slug": "news-new-content-channels",
-          "name": "News: new content channels are live",
+          "name": "Update: new podcast channels are live",
           "settings": {
-            "title": "News: new content channels are live",
-            "description": "Dedicated channels for News, Announcements, and Blog—clearer taxonomy and a smoother read.",
+            "title": "Update: new podcast channels are live",
+            "description": "Dedicated channels for Podcast, Series, and Clips—clearer taxonomy and a smoother listen.",
             "tags": [
               "News",
               "Announcement"
             ],
-            "content": "<h2>What changed</h2>\n<ul>\n<li>Filter content by tags (blog, news, announcements, and more)</li>\n<li>The home page highlights the latest items; sorting rules are configurable</li>\n<li>Information architecture tuned for content sites and navigation</li>\n</ul>\n\n<h2>How to use it</h2>\n<ul>\n<li>Ship product updates under <strong>News</strong></li>\n<li>Post critical notices under <strong>Announcements</strong></li>\n<li>Turn playbooks and long-form tips into <strong>Blog</strong> articles</li>\n</ul>\n"
+            "content": "<h2>What changed</h2>\n<ul>\n<li>Filter episodes by tags (podcast, series, clips, and more)</li>\n<li>The home page highlights the latest items; sorting rules are configurable</li>\n<li>Information architecture tuned for audio sites and navigation</li>\n</ul>\n\n<h2>How to use it</h2>\n<ul>\n<li>Publish new episodes under <strong>Podcast</strong></li>\n<li>Group content into <strong>Series</strong></li>\n<li>Extract highlights as <strong>Clips</strong></li>\n</ul>\n"
           }
         },
         {

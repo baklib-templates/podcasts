@@ -1,17 +1,29 @@
 {
-  "theme_label": "블로그 · 뉴스 · 공지 사이트",
-  "theme_description": "블로그 글, 뉴스 업데이트, 공지사항을 구축하기 위한 소형 CMS 콘텐츠 관리 시스템.",
+  "theme_label": "podcasts",
+  "theme_description": "팟캐스트·오디오 컬렉션 사이트.",
   "templates": {
     "page": {
-      "name": "문서 페이지",
-      "description": "문서 페이지 템플릿",
+      "name": "에피소드",
+      "description": "팟캐스트 에피소드 상세(Show notes + 오디오).",
       "settings": {
         "title": {
           "label": "제목",
-          "info": "콘텐츠 상단에 표시되는 문서 제목"
+          "info": "콘텐츠 상단에 표시되는 에피소드 제목"
+        },
+        "episode_number": {
+          "label": "회차",
+          "info": "제목 앞에 표시되는 번호(예: 5)"
         },
         "description": {
           "label": "요약"
+        },
+        "audio_src": {
+          "label": "오디오 URL",
+          "info": "오디오 파일 직접 URL(mp3, m4a 등)"
+        },
+        "audio_type": {
+          "label": "오디오 MIME 타입",
+          "info": "선택 사항. 예: audio/mpeg"
         },
         "tags": {
           "label": "태그"
@@ -20,7 +32,16 @@
           "label": "커버 이미지"
         },
         "content": {
-          "label": "페이지 콘텐츠"
+          "label": "Show notes"
+        }
+      }
+    },
+    "channel": {
+      "name": "채널",
+      "description": "해당 채널의 에피소드 목록을 보여주는 채널 페이지.",
+      "settings": {
+        "description": {
+          "label": "설명"
         }
       }
     },

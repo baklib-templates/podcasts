@@ -1,0 +1,111 @@
+{%- assign poster_image = site.settings.poster_image_url | presence | default: ('images/poster.png' | asset_url) -%}
+{%- assign podcast_title = site.settings.podcast_title | presence | default: site.name -%}
+{%- assign podcast_tagline = site.settings.podcast_tagline | presence | default: site.description -%}
+{%- assign podcast_about = site.settings.podcast_about | presence -%}
+{%- assign podcast_hosts = site.settings.podcast_hosts | presence -%}
+
+{%- comment -%} Desktop vertical "Hosted by" rail {%- endcomment -%}
+<header class="bg-slate-50 lg:fixed lg:inset-y-0 lg:left-0 lg:flex lg:w-md lg:items-start lg:overflow-y-auto xl:w-120">
+  <div class="hidden lg:sticky lg:top-0 lg:flex lg:w-16 lg:flex-none lg:items-center lg:px-12 lg:text-sm/7 lg:whitespace-nowrap lg:[writing-mode:vertical-rl]">
+    <span class="font-mono text-slate-500">{{ site.settings.hosted_by_label | default: 'Hosted by' }}</span>
+    {%- if podcast_hosts -%}
+      <span class="mt-6 flex gap-6 font-bold text-slate-900">
+        {{ podcast_hosts }}
+      </span>
+    {%- endif -%}
+  </div>
+
+  <div class="relative z-10 mx-auto px-4 pt-10 pb-4 sm:px-6 md:max-w-2xl md:px-4 lg:min-h-full lg:flex-auto lg:border-x lg:border-slate-200 lg:px-8 lg:py-12 xl:px-12">
+    <a
+      href="{{ site.index_path }}"
+      class="relative mx-auto block w-48 overflow-hidden rounded-lg bg-slate-200 shadow-xl shadow-slate-200 sm:w-64 sm:rounded-xl lg:w-auto lg:rounded-2xl"
+      aria-label="Homepage"
+    >
+      <img class="w-full" src="{{ poster_image }}" alt="" loading="eager" />
+      <div class="absolute inset-0 rounded-lg ring-1 ring-black/10 ring-inset sm:rounded-xl lg:rounded-2xl"></div>
+    </a>
+
+    <div class="mt-10 text-center lg:mt-12 lg:text-left">
+      <p class="text-xl font-bold text-slate-900">
+        <a href="{{ site.index_path }}">{{ podcast_title }}</a>
+      </p>
+      {%- if podcast_tagline -%}
+        <p class="mt-3 text-lg/8 font-medium text-slate-700">{{ podcast_tagline }}</p>
+      {%- endif -%}
+    </div>
+
+    <section class="mt-12 hidden lg:block">
+      <h2 class="flex items-center font-mono text-sm/7 font-medium text-slate-900">
+        <span class="inline-block h-2.5 w-2.5 rounded-full bg-pink-300"></span>
+        <span class="ml-2.5">{{ site.settings.about_label | default: 'About' }}</span>
+      </h2>
+
+      {%- if podcast_about -%}
+        <div x-data="{ expanded: false }" class="mt-2 text-base/7 text-slate-700">
+          <div :class="expanded ? '' : 'lg:line-clamp-4'">
+            {{ podcast_about }}
+          </div>
+          <button
+            type="button"
+            class="mt-2 hidden text-sm/6 font-bold text-pink-500 hover:text-pink-700 active:text-pink-900 lg:inline-block"
+            x-show="!expanded"
+            @click="expanded = true"
+          >
+            {{ site.settings.show_more_label | default: 'Show more' }}
+          </button>
+        </div>
+      {%- endif -%}
+    </section>
+
+    <section class="mt-10 lg:mt-12">
+      <h2 class="sr-only flex items-center font-mono text-sm/7 font-medium text-slate-900 lg:not-sr-only">
+        <span class="inline-block h-2.5 w-2.5 rounded-full bg-indigo-300"></span>
+        <span class="ml-2.5">{{ site.settings.listen_label | default: 'Listen' }}</span>
+      </h2>
+      <div class="h-px bg-linear-to-r from-slate-200/0 via-slate-200 to-slate-200/0 lg:hidden"></div>
+      <ul
+        role="list"
+        class="mt-4 flex justify-center gap-10 text-base/7 font-medium text-slate-700 sm:gap-8 lg:flex-col lg:gap-4"
+      >
+        {%- assign spotify_url = site.settings.spotify_url | presence -%}
+        {%- assign apple_podcast_url = site.settings.apple_podcast_url | presence -%}
+        {%- assign overcast_url = site.settings.overcast_url | presence -%}
+        {%- assign rss_url = site.settings.rss_url | presence -%}
+
+        {%- if spotify_url -%}
+          <li class="flex">
+            <a href="{{ spotify_url }}" class="group flex items-center" aria-label="Spotify">
+              <span class="h-8 w-8 rounded-full bg-slate-200 group-hover:bg-slate-300"></span>
+              <span class="hidden sm:ml-3 sm:block">Spotify</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if apple_podcast_url -%}
+          <li class="flex">
+            <a href="{{ apple_podcast_url }}" class="group flex items-center" aria-label="Apple Podcast">
+              <span class="h-8 w-8 rounded-full bg-slate-200 group-hover:bg-slate-300"></span>
+              <span class="hidden sm:ml-3 sm:block">Apple Podcast</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if overcast_url -%}
+          <li class="flex">
+            <a href="{{ overcast_url }}" class="group flex items-center" aria-label="Overcast">
+              <span class="h-8 w-8 rounded-full bg-slate-200 group-hover:bg-slate-300"></span>
+              <span class="hidden sm:ml-3 sm:block">Overcast</span>
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if rss_url -%}
+          <li class="flex">
+            <a href="{{ rss_url }}" class="group flex items-center" aria-label="RSS Feed">
+              <span class="h-8 w-8 rounded-full bg-slate-200 group-hover:bg-slate-300"></span>
+              <span class="hidden sm:ml-3 sm:block">RSS Feed</span>
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </section>
+  </div>
+</header>
+

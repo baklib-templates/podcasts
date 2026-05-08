@@ -1,17 +1,29 @@
 {
-  "theme_label": "Blog",
-  "theme_description": "小型 CMS 内容管理系统，用于构建博客文章、新闻动态、通知公告等内容站点。",
+  "theme_label": "podcasts",
+  "theme_description": "一个播客、音频集合站",
   "templates": {
     "page": {
-      "name": "文章页面",
-      "description": "文章页面模板",
+      "name": "单集页面",
+      "description": "播客单集详情页（Show notes + 音频）。",
       "settings": {
         "title": {
           "label": "标题",
-          "info": "显示在正文上方的文章标题"
+          "info": "显示在正文上方的节目标题"
+        },
+        "episode_number": {
+          "label": "期数",
+          "info": "用于标题前的数字前缀（例如：5）"
         },
         "description": {
           "label": "摘要"
+        },
+        "audio_src": {
+          "label": "音频地址",
+          "info": "音频文件的直链（mp3、m4a 等）"
+        },
+        "audio_type": {
+          "label": "音频类型",
+          "info": "可选，例如：audio/mpeg"
         },
         "tags": {
           "label": "标签"
@@ -20,7 +32,16 @@
           "label": "封面图"
         },
         "content": {
-          "label": "页面内容"
+          "label": "Show notes"
+        }
+      }
+    },
+    "channel": {
+      "name": "栏目页面",
+      "description": "栏目页，用于展示该栏目下的单集列表。",
+      "settings": {
+        "description": {
+          "label": "栏目简介"
         }
       }
     },
