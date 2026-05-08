@@ -17,9 +17,13 @@
         "description": {
           "label": "摘要"
         },
-        "audio_src": {
+        "audio_url": {
           "label": "音訊地址",
           "info": "音訊檔案的直鏈（mp3、m4a 等）"
+        },
+        "audio_asset": {
+          "label": "音訊資源",
+          "info": "從資源庫選擇音訊資源；若填寫，將優先於音訊地址。"
         },
         "audio_type": {
           "label": "音訊類型",

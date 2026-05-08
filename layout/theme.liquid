@@ -22,15 +22,17 @@
       <main class="border-t border-slate-200 lg:relative lg:mb-28 lg:ml-112 lg:border-t-0 xl:ml-120">
         {% render 'transmit_waveform', class: 'absolute top-0 left-0 h-20 w-full' %}
         <div class="relative">
-          {{ content_for_layout }}
+          <turbo-frame id="main-content-frame" data-turbo-action="advance">
+            {{ content_for_layout }}
+          </turbo-frame>
         </div>
       </main>
 
-      <div class="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
+      <div class="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120" data-turbo-permanent>
         {% render 'transmit_player_bar' %}
       </div>
 
-      <audio id="js-audio-player" preload="metadata"></audio>
+      <audio id="js-audio-player" preload="metadata" data-turbo-permanent></audio>
     </div>
   </body>
 </html>

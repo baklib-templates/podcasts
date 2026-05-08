@@ -1,21 +1,37 @@
 {%- assign episode = page -%}
 {%- assign episode_title = episode.link_text | presence -%}
 {%- assign episode_description = episode.settings.description | presence -%}
-{%- assign episode_audio_src = episode.settings.audio_src | presence -%}
+{%- assign episode_audio_asset = episode.settings.audio_asset | presence -%}
+{%- assign episode_audio_url = episode.settings.audio_url | presence -%}
 {%- assign episode_audio_type = episode.settings.audio_type | presence -%}
 {%- assign episode_number = episode.settings.episode_number | presence -%}
+{%- assign episode_thumb_image_url = episode.settings.thumb_image_url | presence -%}
 {%- assign episode_display_title = episode_title -%}
 {%- if episode_number -%}
   {%- capture episode_display_title -%}{{ episode_number }}: {{ episode_title }}{%- endcapture -%}
 {%- endif -%}
 
 {%- assign published_at = episode.published_at | default: episode.created_at -%}
+{%- assign episode_audio_src = episode_audio_asset | default: episode_audio_url | default: '/assets/audio/demo.mp3' -%}
 
 <article aria-labelledby="episode-{{ episode.id }}-title" class="py-10 sm:py-12">
-  <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-8 xl:px-12">
-    <div class="flex flex-col items-start">
+  <div class="mx-auto px-4 sm:px-6 md:max-w-4xl md:px-4 lg:px-8 xl:px-12">
+    <div class="flex items-start gap-6">
+      {%- if site.settings.show_episode_cover and episode_thumb_image_url -%}
+        <a
+          href="{{ episode.path }}"
+          data-turbo-frame="main-content-frame"
+          data-turbo-action="advance"
+          class="mt-1 block h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-slate-100 ring-1 ring-slate-900/5 sm:h-16 sm:w-16"
+          aria-label="{{ episode_display_title | escape }}"
+        >
+          <img src="{{ episode_thumb_image_url }}" alt="" class="h-full w-full object-cover" loading="lazy" />
+        </a>
+      {%- endif -%}
+
+      <div class="flex min-w-0 flex-1 flex-col items-start">
       <h2 id="episode-{{ episode.id }}-title" class="mt-2 text-lg font-bold text-slate-900">
-        <a href="{{ episode.path }}">{{ episode_display_title }}</a>
+        <a href="{{ episode.path }}" data-turbo-frame="main-content-frame" data-turbo-action="advance">{{ episode_display_title }}</a>
       </h2>
 
       {%- if published_at -%}
@@ -33,7 +49,7 @@
           type="button"
           class="flex items-center gap-x-3 text-sm/6 font-bold text-pink-500 hover:text-pink-700 active:text-pink-900"
           x-data
-          @click="$store.player.toggle({ id: '{{ episode.id }}', title: {{ episode_display_title | json }}, path: '{{ episode.path }}', audioSrc: {{ episode_audio_src | default: '' | json }}, audioType: {{ episode_audio_type | default: '' | json }} })"
+          @click="$store.player.toggle({ id: '{{ episode.id }}', title: '{{ episode_display_title | escape_once }}', path: '{{ episode.path | escape_once }}', audioSrc: '{{ episode_audio_src | escape_once }}', audioType: '{{ episode_audio_type | default: '' | escape_once }}' })"
           :aria-label="($store.player.playing && $store.player.episode && $store.player.episode.id === '{{ episode.id }}') ? 'Pause episode' : 'Play episode'"
         >
           <span
@@ -50,6 +66,8 @@
 
         <a
           href="{{ episode.path }}"
+          data-turbo-frame="main-content-frame"
+          data-turbo-action="advance"
           class="flex items-center text-sm/6 font-bold text-pink-500 hover:text-pink-700 active:text-pink-900"
           aria-label="Show notes for episode {{ episode_display_title | escape }}"
         >

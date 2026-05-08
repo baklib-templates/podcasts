@@ -17,9 +17,13 @@
         "description": {
           "label": "요약"
         },
-        "audio_src": {
+        "audio_url": {
           "label": "오디오 URL",
           "info": "오디오 파일 직접 URL(mp3, m4a 등)"
+        },
+        "audio_asset": {
+          "label": "오디오 자산",
+          "info": "DAM에서 오디오를 선택하세요. 설정 시 오디오 URL보다 우선합니다."
         },
         "audio_type": {
           "label": "오디오 MIME 타입",

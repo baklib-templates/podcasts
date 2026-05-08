@@ -15,7 +15,7 @@ pages:
             title: "Bill Lumbergh"
             episode_number: "5"
             description: "He’s going to need you to go ahead and come in on Saturday, but there’s a lot more to the story than you think."
-            audio_src: "/assets/audio/demo.mp3"
+            audio_url: "/assets/audio/demo.mp3"
             audio_type: "audio/mpeg"
             content: |
               <h2>Topics</h2>
@@ -37,7 +37,7 @@ pages:
             title: "Shooter McGavin"
             episode_number: "4"
             description: "When golf-obsessed terrorists kidnapped his family and held them hostage in exchange for a Golden Jacket, Shooter had no choice but to win at all cost."
-            audio_src: "/assets/audio/demo.mp3"
+            audio_url: "/assets/audio/demo.mp3"
             audio_type: "audio/mpeg"
             content: |
               <h2>Show notes</h2>
@@ -50,7 +50,7 @@ pages:
             title: "The Wet Bandits"
             episode_number: "3"
             description: "The Christmas of 1989 wasn’t the first time Harry and Marv crossed paths with the McCallisters."
-            audio_src: "/assets/audio/demo.mp3"
+            audio_url: "/assets/audio/demo.mp3"
             audio_type: "audio/mpeg"
             content: |
               <h2>Show notes</h2>

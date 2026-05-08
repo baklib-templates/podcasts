@@ -1,43 +1,57 @@
 {%- assign episode_title = page.link_text | presence -%}
 {%- assign episode_description = page.settings.description | presence -%}
 {%- assign episode_content = page.settings.content | presence -%}
-{%- assign episode_audio_src = page.settings.audio_src | presence -%}
+{%- assign episode_audio_asset = page.settings.audio_asset | presence -%}
+{%- assign episode_audio_url = page.settings.audio_url | presence -%}
 {%- assign episode_audio_type = page.settings.audio_type | presence -%}
 {%- assign episode_number = page.settings.episode_number | presence -%}
+{%- assign episode_thumb_image_url = page.settings.thumb_image_url | presence -%}
 {%- assign episode_display_title = episode_title -%}
 {%- if episode_number -%}
   {%- capture episode_display_title -%}{{ episode_number }}: {{ episode_title }}{%- endcapture -%}
 {%- endif -%}
 {%- assign published_at = page.published_at | default: page.created_at -%}
+{%- assign episode_audio_src = episode_audio_asset | default: episode_audio_url | default: '/assets/audio/demo.mp3' -%}
 
 <article class="py-16 lg:py-36">
-  <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-8 xl:px-12">
+  <div class="mx-auto px-4 sm:px-6 md:max-w-4xl md:px-4 lg:px-8 xl:px-12">
     <header class="flex flex-col">
-      <div class="flex items-center gap-6">
+      <div class="flex items-start gap-6">
         <button
           type="button"
-          class="group relative flex h-18 w-18 shrink-0 items-center justify-center rounded-full bg-slate-700 hover:bg-slate-900 focus:ring-3 focus:ring-slate-700 focus:ring-offset-4 focus:outline-none"
+          class="group relative mt-1 flex h-18 w-18 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-700 hover:bg-slate-900 focus:ring-3 focus:ring-slate-700 focus:ring-offset-4 focus:outline-none"
           x-data
-          @click="$store.player.toggle({ id: '{{ page.id }}', title: {{ episode_display_title | json }}, path: '{{ page.path }}', audioSrc: {{ episode_audio_src | default: '' | json }}, audioType: {{ episode_audio_type | default: '' | json }} })"
+          @click="$store.player.toggle({ id: '{{ page.id }}', title: '{{ episode_display_title | escape_once }}', path: '{{ page.path | escape_once }}', audioSrc: '{{ episode_audio_src | escape_once }}', audioType: '{{ episode_audio_type | default: '' | escape_once }}' })"
           aria-label="Play episode"
         >
-          <span class="text-white text-xl" x-show="!($store.player.playing && $store.player.episode && $store.player.episode.id === '{{ page.id }}')" aria-hidden="true">▶</span>
-          <span class="text-white text-xl" x-show="$store.player.playing && $store.player.episode && $store.player.episode.id === '{{ page.id }}'" aria-hidden="true">❚❚</span>
+          {%- if site.settings.show_episode_cover and episode_thumb_image_url -%}
+            <span
+              aria-hidden="true"
+              class="absolute inset-0 bg-cover bg-center"
+              style="background-image:url('{{ episode_thumb_image_url | escape_once }}');"
+              :class="($store.player.playing && $store.player.episode && $store.player.episode.id === '{{ page.id }}') ? '[animation:spin_8s_linear_infinite]' : ''"
+            ></span>
+            <span aria-hidden="true" class="absolute inset-0 bg-slate-900/25"></span>
+          {%- endif -%}
+          <span class="relative z-10 text-white text-xl" x-show="!($store.player.playing && $store.player.episode && $store.player.episode.id === '{{ page.id }}')" aria-hidden="true">▶</span>
+          <span class="relative z-10 text-white text-xl" x-show="$store.player.playing && $store.player.episode && $store.player.episode.id === '{{ page.id }}'" aria-hidden="true">❚❚</span>
         </button>
 
-        <div class="flex flex-col">
+        <div class="min-w-0 flex-1">
           {%- if published_at -%}
-            <time datetime="{{ published_at | date: '%Y-%m-%d' }}" class="order-first font-mono text-sm/7 text-slate-500">
+            <time datetime="{{ published_at | date: '%Y-%m-%d' }}" class="font-mono text-sm/7 text-slate-500">
               {{ published_at | date: '%B %e, %Y' }}
             </time>
           {%- endif -%}
-          <h1 class="mt-2 text-4xl font-bold text-slate-900">{{ episode_display_title }}</h1>
+          <h1 class="mt-2 text-xl md:text-3xl font-bold text-slate-900">{{ episode_display_title }}</h1>
+
+          {%- if episode_description -%}
+            <p class="mt-3 text-lg/8 font-medium text-slate-700">{{ episode_description }}</p>
+          {%- endif -%}
         </div>
       </div>
 
-      {%- if episode_description -%}
-        <p class="mt-3 ml-24 text-lg/8 font-medium text-slate-700">{{ episode_description }}</p>
-      {%- endif -%}
+      
     </header>
 
     <hr class="my-12 border-gray-200" />
@@ -78,18 +92,17 @@
         "label": "t:schema.templates.page.settings.description.label"
       },
       {
-        "id": "audio_src",
+        "id": "audio_url",
         "type": "text",
         "placeholder": "https://example.com/audio.mp3",
-        "label": "t:schema.templates.page.settings.audio_src.label",
-        "info": "t:schema.templates.page.settings.audio_src.info"
+        "label": "t:schema.templates.page.settings.audio_url.label",
+        "info": "t:schema.templates.page.settings.audio_url.info"
       },
       {
-        "id": "audio_type",
-        "type": "text",
-        "placeholder": "audio/mpeg",
-        "label": "t:schema.templates.page.settings.audio_type.label",
-        "info": "t:schema.templates.page.settings.audio_type.info"
+        "id": "audio_asset",
+        "type": "dam_picker",
+        "label": "t:schema.templates.page.settings.audio_asset.label",
+        "info": "t:schema.templates.page.settings.audio_asset.info"
       },
       {
         "id": "tags",
@@ -100,8 +113,8 @@
       {
         "id": "thumb_image_url",
         "type": "image_picker",
-        "ratio": "4:1",
-        "width": 640,
+        "ratio": "1:1",
+        "width": 240,
         "label": "t:schema.templates.page.settings.thumb_image_url.label"
       },
       {

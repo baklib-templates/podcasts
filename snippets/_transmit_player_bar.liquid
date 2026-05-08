@@ -18,6 +18,8 @@
   <div class="mb-[env(safe-area-inset-bottom)] flex flex-1 flex-col gap-3 overflow-hidden p-1">
     <a
       :href="$store.player.episode ? $store.player.episode.path : '#'"
+      data-turbo-frame="main-content-frame"
+      data-turbo-action="advance"
       class="truncate text-center text-sm/6 font-bold md:text-left"
       :title="$store.player.episode ? $store.player.episode.title : ''"
       x-text="$store.player.episode ? $store.player.episode.title : ''"
@@ -27,12 +29,11 @@
       <div class="flex items-center md:hidden">
         <button
           type="button"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-md text-slate-700 hover:bg-slate-100"
+          class="group inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-slate-100"
           @click="$store.player.toggleMute()"
           :aria-label="$store.player.muted ? 'Unmute' : 'Mute'"
         >
-          <span x-show="$store.player.muted" aria-hidden="true">🔇</span>
-          <span x-show="!$store.player.muted" aria-hidden="true">🔊</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 fill-slate-500 stroke-slate-500 group-hover:fill-slate-700 group-hover:stroke-slate-700" :class="$store.player.muted ? 'opacity-60' : ''"><path d="M12 6L8 10H6C5.44772 10 5 10.4477 5 11V13C5 13.5523 5.44772 14 6 14H8L12 18V6Z"></path><path d="M17 7C17 7 19 9 19 12C19 15 17 17 17 17" fill="none"></path><path d="M15.5 10.5C15.5 10.5 16 10.9998 16 11.9999C16 13 15.5 13.5 15.5 13.5" fill="none"></path></svg>
         </button>
       </div>
 
@@ -95,12 +96,11 @@
         <div class="hidden items-center md:flex">
           <button
             type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-md text-slate-700 hover:bg-slate-100"
+            class="group inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-slate-100"
             @click="$store.player.toggleMute()"
             :aria-label="$store.player.muted ? 'Unmute' : 'Mute'"
           >
-            <span x-show="$store.player.muted" aria-hidden="true">🔇</span>
-            <span x-show="!$store.player.muted" aria-hidden="true">🔊</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 fill-slate-500 stroke-slate-500 group-hover:fill-slate-700 group-hover:stroke-slate-700" :class="$store.player.muted ? 'opacity-60' : ''"><path d="M12 6L8 10H6C5.44772 10 5 10.4477 5 11V13C5 13.5523 5.44772 14 6 14H8L12 18V6Z"></path><path d="M17 7C17 7 19 9 19 12C19 15 17 17 17 17" fill="none"></path><path d="M15.5 10.5C15.5 10.5 16 10.9998 16 11.9999C16 13 15.5 13.5 15.5 13.5" fill="none"></path></svg>
           </button>
         </div>
       </div>

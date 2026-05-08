@@ -17,9 +17,13 @@
         "description": {
           "label": "概要"
         },
-        "audio_src": {
+        "audio_url": {
           "label": "音声URL",
           "info": "音声ファイルの直リンク（mp3、m4a など）"
+        },
+        "audio_asset": {
+          "label": "音声アセット",
+          "info": "DAM から音声を選択。設定時は音声URLより優先されます。"
         },
         "audio_type": {
           "label": "音声MIMEタイプ",

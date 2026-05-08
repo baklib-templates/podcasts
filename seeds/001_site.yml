@@ -15,10 +15,23 @@ site:
       In this show, Eric and Wes dig deep to get to the facts with guests who have been labeled villains by a society quick to judge, without actually getting the full story. Tune in every Thursday to get to the truth with another misunderstood outcast as they share the missing context in their tragic tale.
     poster_image_url: "images/poster.png"
 
-    spotify_url: ""
-    apple_podcast_url: ""
-    overcast_url: ""
-    rss_url: ""
+    header_html: |
+      <a href="#" class="group flex items-center" aria-label="Spotify">
+        <span class="h-8 w-8 rounded-full bg-slate-200 group-hover:bg-slate-300"></span>
+        <span class="hidden sm:ml-3 sm:block">Spotify</span>
+      </a>
+      <a href="#" class="group flex items-center" aria-label="Apple Podcast">
+        <span class="h-8 w-8 rounded-full bg-slate-200 group-hover:bg-slate-300"></span>
+        <span class="hidden sm:ml-3 sm:block">Apple Podcast</span>
+      </a>
+      <a href="#" class="group flex items-center" aria-label="Overcast">
+        <span class="h-8 w-8 rounded-full bg-slate-200 group-hover:bg-slate-300"></span>
+        <span class="hidden sm:ml-3 sm:block">Overcast</span>
+      </a>
+      <a href="#" class="group flex items-center" aria-label="RSS Feed">
+        <span class="h-8 w-8 rounded-full bg-slate-200 group-hover:bg-slate-300"></span>
+        <span class="hidden sm:ml-3 sm:block">RSS Feed</span>
+      </a>
 
     episodes_label: "Episodes"
     listen_label: "Listen"

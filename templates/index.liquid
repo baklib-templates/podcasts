@@ -1,12 +1,13 @@
 {%- assign channels = site.pages['/'].children_in_list -%}
-{%- assign current_channel = channels.first -%}
-{%- assign episodes = current_channel.children_in_list | default: empty | order_by: '-published_at' -%}
+{%- assign current_channel = channels | first -%}
+{%- assign episodes = current_channel.children_in_list | order_by: '-published_at' -%}
 
 <div class="pt-16 pb-12 sm:pb-4 lg:pt-12">
   <div class="mx-auto px-4 sm:px-6 md:max-w-2xl md:px-4 lg:px-8 xl:px-12">
     <h1 class="text-2xl/7 font-bold text-slate-900">{{ site.settings.episodes_label | default: 'Episodes' }}</h1>
 
-    {%- if channels and channels.size > 1 -%}
+    {%- assign channels_size = channels | size -%}
+    {%- if channels_size > 1 -%}
       <div class="mt-4 flex flex-wrap gap-3 text-sm/6 font-medium text-slate-600">
         {%- for ch in channels -%}
           <a href="{{ ch.path }}" class="hover:text-slate-900">{{ ch.link_text }}</a>

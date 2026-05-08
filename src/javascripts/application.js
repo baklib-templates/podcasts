@@ -1,4 +1,11 @@
-import Alpine from 'alpinejs'
+import * as Turbo from "@hotwired/turbo"
+import { Application } from "@hotwired/stimulus"
+import Alpine from "alpinejs"
+
+window.Turbo = Turbo
+
+const stimulus = Application.start()
+window.Stimulus = stimulus
 
 window.Alpine = Alpine
 

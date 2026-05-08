@@ -20,6 +20,8 @@
     "viewerjs": "^1.11.6"
   },
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.23",
     "alpinejs": "^3.14.9"
   }
 }

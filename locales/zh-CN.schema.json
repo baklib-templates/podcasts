@@ -17,9 +17,13 @@
         "description": {
           "label": "摘要"
         },
-        "audio_src": {
+        "audio_url": {
           "label": "音频地址",
           "info": "音频文件的直链（mp3、m4a 等）"
+        },
+        "audio_asset": {
+          "label": "音频资源",
+          "info": "从资源库选择音频资源；若填写，将优先于音频地址。"
         },
         "audio_type": {
           "label": "音频类型",

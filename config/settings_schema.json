@@ -116,7 +116,7 @@
         "id": "poster_image_url",
         "type": "image_picker",
         "ratio": "1:1",
-        "width": 800,
+        "width": 200,
         "label": "Poster image"
       },
       {
@@ -141,24 +141,17 @@
         "label": "Hosts (text)"
       },
       {
-        "id": "spotify_url",
-        "type": "text",
-        "label": "Spotify URL"
+        "id": "show_episode_cover",
+        "type": "checkbox",
+        "label": "是否展示封面",
+        "default": false,
+        "info": "开启后：列表左侧与详情页标题区右侧展示单集封面（1:1）。"
       },
       {
-        "id": "apple_podcast_url",
-        "type": "text",
-        "label": "Apple Podcast URL"
-      },
-      {
-        "id": "overcast_url",
-        "type": "text",
-        "label": "Overcast URL"
-      },
-      {
-        "id": "rss_url",
-        "type": "text",
-        "label": "RSS URL"
+        "id": "header_html",
+        "type": "html",
+        "label": "Sidebar header HTML",
+        "info": "Custom sidebar navigation HTML (e.g. Spotify/Apple/Overcast/RSS links)."
       },
       {
         "id": "episodes_label",
