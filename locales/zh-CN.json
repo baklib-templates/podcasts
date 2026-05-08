@@ -1,0 +1,110 @@
+{
+  "snippets": {
+    "feedback_form": {
+      "title": "提交反馈",
+      "message_label": "留言",
+      "message_placeholder": "请输入反馈内容",
+      "message_required": "反馈内容不能为空",
+      "submit": "提交",
+      "cancel": "取消"
+    },
+    "feedback_button": {
+      "title_posted": "感谢您的反馈",
+      "title_unposted": "提交反馈"
+    }
+  },
+  "templates": {
+    "index": {
+      "list": {
+        "all": "全部"
+      },
+      "sort_label": "排序",
+      "sort_newest": "最新",
+      "sort_oldest": "最早"
+    },
+    "page": {
+      "current_version": "当前版本",
+      "visit_count": "访问量"
+    }
+  },
+  "paginate": {
+    "showing": "当前显示第",
+    "total": "总共",
+    "records": "条记录",
+    "previous": "上一页",
+    "next": "下一页"
+  },
+  "generic": {
+    "feedback_created_at": "上次反馈于",
+    "empty": "暂无数据",
+    "all_tags": "所有标签",
+    "recent_updates": "最近更新",
+    "recent_memo_note": "展示首页列表中最近创建的 5 条内容（备忘页）。",
+    "back_to_home": "返回首页",
+    "copyright": "版权所有",
+    "submit": "提交",
+    "placeholders": {
+      "search": "搜索",
+      "input_feedback": "请输入反馈内容"
+    },
+    "buttons": {
+      "close": "关闭",
+      "signout": "退出登录",
+      "signin": "登录"
+    },
+    "tags_heading": "标签",
+    "accessibility": {
+      "close_sidebar": "关闭侧边菜单"
+    }
+  },
+  "demo": {
+    "pages": {
+      "home": {
+        "settings": {
+          "title": "最新文章",
+          "description": "汇总博客文章、新闻动态与通知公告，<br class=\"hidden sm:inline\"/>帮助你快速了解最近发生的重要事情"
+        }
+      },
+      "children": [
+        {
+          "slug": "how-to-write-a-good-post",
+          "name": "如何写出一篇好文章：结构与写作清单",
+          "settings": {
+            "title": "如何写出一篇好文章：结构与写作清单",
+            "description": "从标题、导语到正文结构，一套适用于博客/资讯内容的写作清单。",
+            "tags": [
+              "博客"
+            ],
+            "content": "<h2>推荐结构</h2>\n<ol>\n<li><strong>标题</strong>：明确主题与收益</li>\n<li><strong>导语</strong>：用 1-2 句话交代背景与结论</li>\n<li><strong>正文</strong>：按问题-方法-示例-注意事项展开</li>\n<li><strong>结尾</strong>：总结要点，并给出下一步行动</li>\n</ol>\n\n<h2>写作清单</h2>\n<ul>\n<li>是否有清晰的受众与场景？</li>\n<li>是否给出可复用的步骤或模板？</li>\n<li>是否配有示意图/代码/截图（如适用）？</li>\n<li>是否便于搜索与归档（标签、摘要、封面图）？</li>\n</ul>\n"
+          }
+        },
+        {
+          "slug": "news-new-content-channels",
+          "name": "新闻：我们上线了新的内容频道",
+          "settings": {
+            "title": "新闻：我们上线了新的内容频道",
+            "description": "新增「新闻」「公告」「博客」频道，内容分类更清晰，阅读体验更顺畅。",
+            "tags": [
+              "新闻",
+              "公告"
+            ],
+            "content": "<h2>本次更新</h2>\n<ul>\n<li>支持按标签筛选内容（博客/新闻/公告等）</li>\n<li>首页默认展示最新内容，支持排序规则配置</li>\n<li>更适合「内容站」的信息架构与导航入口</li>\n</ul>\n\n<h2>你可以怎么用</h2>\n<ul>\n<li>把产品动态放在「新闻」</li>\n<li>把重要通知放在「公告」</li>\n<li>把经验方法论沉淀为「博客文章」</li>\n</ul>\n"
+          }
+        },
+        {
+          "slug": "announcement-holiday-support-hours",
+          "name": "通知公告：关于节假日服务时间调整",
+          "settings": {
+            "title": "通知公告：关于节假日服务时间调整",
+            "description": "节假日期间客服与工单响应时间安排说明。",
+            "tags": [
+              "公告",
+              "通知"
+            ],
+            "content": "<h2>服务时间</h2>\n<p>节假日期间，我们将调整在线支持时间为：<strong>10:00 - 18:00</strong>。</p>\n\n<h2>影响范围</h2>\n<ul>\n<li>在线客服：响应可能略有延迟</li>\n<li>工单系统：优先处理紧急问题</li>\n<li>知识库：可正常访问与搜索</li>\n</ul>\n\n<h2>联系我们</h2>\n<p>如遇紧急问题，请通过站点底部的联系方式或工单系统提交。</p>\n"
+          }
+        }
+      ]
+    }
+  }
+}

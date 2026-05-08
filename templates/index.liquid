@@ -1,0 +1,47 @@
+{% assign sort_mode = params.sort | default: 'published_desc' %}
+{% unless sort_mode == 'published_asc' %}
+  {% assign sort_mode = 'published_desc' %}
+{% endunless %}
+
+{% case sort_mode %}
+  {% when 'published_asc' %}
+    {% assign sort_field = 'published_at' %}
+  {% else %}
+    {% assign sort_field = '-published_at' %}
+{% endcase %}
+
+{% assign pages = site.pages['/'].children_in_list | order_by: sort_field %}
+
+<div class="flex-1 bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    {% render 'news_toolbar', sort_base: site.index_path, sort_mode: sort_mode %}
+
+    {% paginate_tag pages, per: 9 %}
+      <div class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {% for article in pages %}
+          {% render 'card_grid', page: article %}
+        {% else %}
+          <div class="col-span-full py-24 text-center text-sm text-slate-500">{{ 'generic.empty' | t }}</div>
+        {% endfor %}
+      </div>
+
+      {% if paginate.total_count > 0 %}
+        <div class="mt-14 flex justify-center border-t border-slate-100 pt-10">
+          {% render 'paginate', paginate: paginate %}
+        </div>
+      {% endif %}
+    {% endpaginate_tag %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:schema.templates.index_card.name",
+    "description": "t:schema.templates.index_card.description",
+    "thumb_url": "images/theme/index-card.png",
+    "preview_image_urls": [
+      "images/theme/index-card.png"
+    ],
+    "sub_page_templates": ["page"]
+  }
+{% endschema %}

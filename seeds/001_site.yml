@@ -1,0 +1,21 @@
+site:
+  language: 'en'
+  settings:
+    # General settings (see settings_schema.json).
+
+    # Site tags (`site.tags`) are not stored in theme site settings—do not add a `tags`
+    # field for `site` in settings_schema.json.
+    # Create tags: POST /api/v1/sites/:site_id/tags (see https://dev.baklib.cn/api).
+    # Liquid: `site.tags`; page-side tags use template schema `tag_picker` → `page.settings.tags`
+    # (see https://dev.baklib.cn/guide/objects).
+
+    # Custom HTML (see settings_schema.json)
+    head_html: ""
+    header_menu_html: |
+      <a href="/" class="hover:underline">Home</a>
+      <a href="/#tags" class="hover:underline">Tags</a>
+      <a href="/s/about" class="hover:underline">About</a>
+    footer_menu_html: |
+      <a href="/" class="text-white hover:underline">Back to site</a>
+      <a href="/#privacy" class="text-white hover:underline">Privacy</a>
+      <a href="/#terms" class="text-white hover:underline">Terms</a>

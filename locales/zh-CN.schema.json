@@ -1,0 +1,85 @@
+{
+  "theme_label": "Blog",
+  "theme_description": "小型 CMS 内容管理系统，用于构建博客文章、新闻动态、通知公告等内容站点。",
+  "templates": {
+    "page": {
+      "name": "文章页面",
+      "description": "文章页面模板",
+      "settings": {
+        "title": {
+          "label": "标题",
+          "info": "显示在正文上方的文章标题"
+        },
+        "description": {
+          "label": "摘要"
+        },
+        "tags": {
+          "label": "标签"
+        },
+        "thumb_image_url": {
+          "label": "封面图"
+        },
+        "content": {
+          "label": "页面内容"
+        }
+      }
+    },
+    "index_list": {
+      "name": "首页（列表）",
+      "description": "列表样式首页，含搜索与标签筛选。"
+    },
+    "index_card": {
+      "name": "首页（卡片）",
+      "description": "卡片网格样式首页，支持按发布时间排序。"
+    }
+  },
+  "generic": {
+    "name": "通用设置",
+    "settings": {
+      "is_allow_feedback": {
+        "label": "是否展示用户反馈"
+      },
+      "is_show_visit_count": {
+        "label": "是否展示访问量"
+      },
+      "is_allow_header": {
+        "label": "是否展示页头Header部分"
+      },
+      "is_allow_footer": {
+        "label": "是否展示页脚Footer部分"
+      },
+      "sort_rule": {
+        "label": "首页页面列表展示规则",
+        "options": {
+          "created_at_desc": "按创建日期-倒序",
+          "created_at_asc": "按创建日期-正序",
+          "edited_at_desc": "按更新日期-倒序",
+          "edited_at_asc": "按更新日期-正序",
+          "visit_count_desc": "按访问量（从多到少）",
+          "visit_count_asc": "按访问量（从少到多）",
+          "manual": "手动排序"
+        }
+      }
+    }
+  },
+  "custom_html": {
+    "name": "自定义 HTML 代码",
+    "settings": {
+      "head_html": {
+        "label": "自定义 <head></head> 标签中的 HTML",
+        "info": "支持HTML标签和有限的TailwindCSS样式代码",
+        "placeholder": "通常在这里插入访问统计、客服机器人等嵌入代码"
+      },
+      "header_menu_html": {
+        "label": "顶部导航区域插入 HTML 代码",
+        "info": "支持HTML标签和有限的TailwindCSS样式代码",
+        "placeholder": "通常在这里插入公司其他网站的导航链接"
+      },
+      "footer_menu_html": {
+        "label": "底部区域插入 HTML 代码",
+        "info": "支持HTML标签和有限的TailwindCSS样式代码",
+        "placeholder": "通常在这里插入公司其他网站的外部导航链接、友情链接、SEO 优化链接等"
+      }
+    }
+  }
+}

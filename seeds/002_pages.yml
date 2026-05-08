@@ -1,0 +1,78 @@
+pages:
+  # Home (index template)
+  template_name: "index"
+  settings:
+    title: "Latest posts"
+    description: "Blog posts, news, and announcements in one place.<br class=\"hidden sm:inline\"/>Stay on top of what matters."
+
+  # Sample articles
+  children:
+    - name: "How to write a strong post: structure and checklist"
+      slug: "how-to-write-a-good-post"
+      template_name: "page"
+      settings:
+        title: "How to write a strong post: structure and checklist"
+        description: "From headline to body—a practical structure and checklist for blog and news content."
+        tags: ["Blog"]
+        thumb_image_url: "images/theme/page.png"
+        content: |
+          <h2>Suggested structure</h2>
+          <ol>
+            <li><strong>Headline</strong>: clear topic and reader benefit</li>
+            <li><strong>Lead</strong>: 1–2 sentences for context and takeaway</li>
+            <li><strong>Body</strong>: problem → approach → examples → caveats</li>
+            <li><strong>Close</strong>: recap key points and next steps</li>
+          </ol>
+
+          <h2>Checklist</h2>
+          <ul>
+            <li>Is the audience and scenario explicit?</li>
+            <li>Are there reusable steps or templates?</li>
+            <li>Do you add visuals, code, or screenshots where helpful?</li>
+            <li>Is it easy to find later (tags, summary, cover image)?</li>
+          </ul>
+
+    - name: "News: new content channels are live"
+      slug: "news-new-content-channels"
+      template_name: "page"
+      settings:
+        title: "News: new content channels are live"
+        description: "Dedicated channels for News, Announcements, and Blog—clearer taxonomy and a smoother read."
+        tags: ["News", "Announcement"]
+        thumb_image_url: "images/theme/index-list.png"
+        content: |
+          <h2>What changed</h2>
+          <ul>
+            <li>Filter content by tags (blog, news, announcements, and more)</li>
+            <li>The home page highlights the latest items; sorting rules are configurable</li>
+            <li>Information architecture tuned for content sites and navigation</li>
+          </ul>
+
+          <h2>How to use it</h2>
+          <ul>
+            <li>Ship product updates under <strong>News</strong></li>
+            <li>Post critical notices under <strong>Announcements</strong></li>
+            <li>Turn playbooks and long-form tips into <strong>Blog</strong> articles</li>
+          </ul>
+
+    - name: "Announcement: holiday support hours"
+      slug: "announcement-holiday-support-hours"
+      template_name: "page"
+      settings:
+        title: "Announcement: holiday support hours"
+        description: "Live chat and ticket response hours during public holidays."
+        tags: ["Announcement", "Notice"]
+        thumb_image_url: "images/theme/release-guide.png"
+        content: |
+          <h2>Support hours</h2>
+          <p>During holidays, online support hours will be <strong>10:00 – 18:00</strong>.</p>
+
+          <h2>Impact</h2>
+          <ul>
+            <li>Live chat: responses may be slightly slower</li>
+            <li>Tickets: urgent issues are prioritized</li>
+            <li>Knowledge base: browse and search as usual</li>
+          </ul>
+
+          <h2>Contact</h2>
+          <p>For emergencies, reach us via the site footer or submit a ticket.</p>

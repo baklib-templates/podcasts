@@ -1,0 +1,15 @@
+{% assign footer_menu_html = site.settings.footer_menu_html | presence %}
+
+{% if footer_menu_html %}
+  <footer
+    id="footer"
+    class="p-6 text-sm text-gray-100 footer footer-center bg-accent"
+  >
+    <div class="justify-between items-center space-y-2">
+      {% # 自定义导航菜单 %}
+      <div class="flex justify-center space-x-3">
+        {{ footer_menu_html }}
+      </div>
+    </div>
+  </footer>
+{% endif %}

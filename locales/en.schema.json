@@ -1,0 +1,85 @@
+{
+  "theme_label": "Blog",
+  "theme_description": "A small CMS for building content sites with blog posts, news updates, and announcements.",
+  "templates": {
+    "page": {
+      "name": "Article Page",
+      "description": "Article page template",
+      "settings": {
+        "title": {
+          "label": "Title",
+          "info": "Article title displayed above the content"
+        },
+        "description": {
+          "label": "Summary"
+        },
+        "tags": {
+          "label": "Tags"
+        },
+        "thumb_image_url": {
+          "label": "Cover Image"
+        },
+        "content": {
+          "label": "Page Content"
+        }
+      }
+    },
+    "index_list": {
+      "name": "Home (list)",
+      "description": "List-style home with search and tag filters."
+    },
+    "index_card": {
+      "name": "Home (cards)",
+      "description": "Card grid home with sorting by publish date."
+    }
+  },
+  "generic": {
+    "name": "General Settings",
+    "settings": {
+      "is_allow_feedback": {
+        "label": "Show User Feedback"
+      },
+      "is_show_visit_count": {
+        "label": "Show Visit Count"
+      },
+      "is_allow_header": {
+        "label": "Show Header Section"
+      },
+      "is_allow_footer": {
+        "label": "Show Footer Section"
+      },
+      "sort_rule": {
+        "label": "Home Page List Display Rules",
+        "options": {
+          "created_at_desc": "By Creation Date - Descending",
+          "created_at_asc": "By Creation Date - Ascending",
+          "edited_at_desc": "By Update Date - Descending",
+          "edited_at_asc": "By Update Date - Ascending",
+          "visit_count_desc": "By Visit Count (High to Low)",
+          "visit_count_asc": "By Visit Count (Low to High)",
+          "manual": "Manual Sort"
+        }
+      }
+    }
+  },
+  "custom_html": {
+    "name": "Custom HTML Code",
+    "settings": {
+      "head_html": {
+        "label": "Custom HTML in <head></head> tags",
+        "info": "Supports HTML tags and limited TailwindCSS style code",
+        "placeholder": "Usually used for analytics, customer service bot, etc."
+      },
+      "header_menu_html": {
+        "label": "Insert HTML in Top Navigation Area",
+        "info": "Supports HTML tags and limited TailwindCSS style code",
+        "placeholder": "Usually used for company website navigation links"
+      },
+      "footer_menu_html": {
+        "label": "Insert HTML in Footer Area",
+        "info": "Supports HTML tags and limited TailwindCSS style code",
+        "placeholder": "Usually used for external navigation links, friend links, SEO optimization links, etc."
+      }
+    }
+  }
+}
