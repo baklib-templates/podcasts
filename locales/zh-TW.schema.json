@@ -58,32 +58,28 @@
       "description": "卡片網格樣式首頁，支援依發佈時間排序。"
     }
   },
-  "generic": {
-    "name": "通用設置",
+  "podcast": {
+    "name": "播客",
     "settings": {
-      "is_allow_feedback": {
-        "label": "是否展示用戶反饋"
+      "poster_image_url": {
+        "label": "封面圖"
       },
-      "is_show_visit_count": {
-        "label": "是否展示訪問量"
+      "podcast_title": {
+        "label": "播客標題"
       },
-      "is_allow_header": {
-        "label": "是否展示頁頭Header部分"
+      "podcast_tagline": {
+        "label": "副標題"
       },
-      "is_allow_footer": {
-        "label": "是否展示頁腳Footer部分"
+      "podcast_about": {
+        "label": "關於"
       },
-      "sort_rule": {
-        "label": "首頁頁面列表展示規則",
-        "options": {
-          "created_at_desc": "按創建日期-倒序",
-          "created_at_asc": "按創建日期-正序",
-          "edited_at_desc": "按更新日期-倒序",
-          "edited_at_asc": "按更新日期-正序",
-          "visit_count_desc": "按訪問量（從多到少）",
-          "visit_count_asc": "按訪問量（從少到多）",
-          "manual": "手動排序"
-        }
+      "show_episode_cover": {
+        "label": "是否展示單集封面",
+        "info": "開啟後：列表左側與詳情頁標題區展示單集封面（1:1）。"
+      },
+      "header_html": {
+        "label": "側欄收聽連結 HTML",
+        "info": "自訂側欄導航 HTML（如 Spotify / Apple Podcast / RSS 等）。"
       }
     }
   },
@@ -94,16 +90,6 @@
         "label": "自定義 <head></head> 標籤中的 HTML",
         "info": "支持HTML標籤和有限的TailwindCSS樣式代碼",
         "placeholder": "通常在這裡插入訪問統計、客服機器人等嵌入代碼"
-      },
-      "header_menu_html": {
-        "label": "頂部導航區域插入 HTML 代碼",
-        "info": "支持HTML標籤和有限的TailwindCSS樣式代碼",
-        "placeholder": "通常在這裡插入公司其他網站的導航鏈接"
-      },
-      "footer_menu_html": {
-        "label": "底部區域插入 HTML 代碼",
-        "info": "支持HTML標籤和有限的TailwindCSS樣式代碼",
-        "placeholder": "通常在這裡插入公司其他網站的外部導航鏈接、友情鏈接、SEO 優化鏈接等"
       }
     }
   }

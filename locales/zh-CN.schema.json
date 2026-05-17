@@ -58,32 +58,28 @@
       "description": "卡片网格样式首页，支持按发布时间排序。"
     }
   },
-  "generic": {
-    "name": "通用设置",
+  "podcast": {
+    "name": "播客",
     "settings": {
-      "is_allow_feedback": {
-        "label": "是否展示用户反馈"
+      "poster_image_url": {
+        "label": "封面图"
       },
-      "is_show_visit_count": {
-        "label": "是否展示访问量"
+      "podcast_title": {
+        "label": "播客标题"
       },
-      "is_allow_header": {
-        "label": "是否展示页头Header部分"
+      "podcast_tagline": {
+        "label": "副标题"
       },
-      "is_allow_footer": {
-        "label": "是否展示页脚Footer部分"
+      "podcast_about": {
+        "label": "关于"
       },
-      "sort_rule": {
-        "label": "首页页面列表展示规则",
-        "options": {
-          "created_at_desc": "按创建日期-倒序",
-          "created_at_asc": "按创建日期-正序",
-          "edited_at_desc": "按更新日期-倒序",
-          "edited_at_asc": "按更新日期-正序",
-          "visit_count_desc": "按访问量（从多到少）",
-          "visit_count_asc": "按访问量（从少到多）",
-          "manual": "手动排序"
-        }
+      "show_episode_cover": {
+        "label": "是否展示单集封面",
+        "info": "开启后：列表左侧与详情页标题区展示单集封面（1:1）。"
+      },
+      "header_html": {
+        "label": "侧栏收听链接 HTML",
+        "info": "自定义侧栏导航 HTML（如 Spotify / Apple Podcast / RSS 等）。"
       }
     }
   },
@@ -94,16 +90,6 @@
         "label": "自定义 <head></head> 标签中的 HTML",
         "info": "支持HTML标签和有限的TailwindCSS样式代码",
         "placeholder": "通常在这里插入访问统计、客服机器人等嵌入代码"
-      },
-      "header_menu_html": {
-        "label": "顶部导航区域插入 HTML 代码",
-        "info": "支持HTML标签和有限的TailwindCSS样式代码",
-        "placeholder": "通常在这里插入公司其他网站的导航链接"
-      },
-      "footer_menu_html": {
-        "label": "底部区域插入 HTML 代码",
-        "info": "支持HTML标签和有限的TailwindCSS样式代码",
-        "placeholder": "通常在这里插入公司其他网站的外部导航链接、友情链接、SEO 优化链接等"
       }
     }
   }

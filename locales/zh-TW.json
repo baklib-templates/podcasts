@@ -50,6 +50,15 @@
       "close_sidebar": "關閉側邊選單"
     }
   },
+  "podcast": {
+    "episodes_heading": "節目",
+    "listen": "收聽",
+    "show_notes": "節目筆記",
+    "about": "關於",
+    "show_more": "展開更多",
+    "channels": "頻道",
+    "recent_updates": "最新更新"
+  },
   "paginate": {
     "showing": "當前顯示第",
     "total": "總共",

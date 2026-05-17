@@ -47,7 +47,7 @@
       <div class="mt-4 flex items-center gap-4">
         <button
           type="button"
-          class="flex items-center gap-x-3 text-sm/6 font-bold text-pink-500 hover:text-pink-700 active:text-pink-900"
+          class="flex items-center gap-x-3 text-sm/6 font-bold text-primary hover:opacity-80 active:opacity-70"
           x-data
           @click="$store.player.toggle({ id: '{{ episode.id }}', title: '{{ episode_display_title | escape_once }}', path: '{{ episode.path | escape_once }}', audioSrc: '{{ episode_audio_src | escape_once }}', audioType: '{{ episode_audio_type | default: '' | escape_once }}' })"
           :aria-label="($store.player.playing && $store.player.episode && $store.player.episode.id === '{{ episode.id }}') ? 'Pause episode' : 'Play episode'"
@@ -59,7 +59,7 @@
             <span x-show="$store.player.playing && $store.player.episode && $store.player.episode.id === '{{ episode.id }}'">❚❚</span>
             <span x-show="!($store.player.playing && $store.player.episode && $store.player.episode.id === '{{ episode.id }}')">▶</span>
           </span>
-          <span aria-hidden="true">{{ site.settings.listen_label | default: 'Listen' }}</span>
+          <span aria-hidden="true">{{ 'podcast.listen' | t }}</span>
         </button>
 
         <span aria-hidden="true" class="text-sm font-bold text-slate-400">/</span>
@@ -68,10 +68,10 @@
           href="{{ episode.path }}"
           data-turbo-frame="main-content-frame"
           data-turbo-action="advance"
-          class="flex items-center text-sm/6 font-bold text-pink-500 hover:text-pink-700 active:text-pink-900"
+          class="flex items-center text-sm/6 font-bold text-primary hover:opacity-80 active:opacity-70"
           aria-label="Show notes for episode {{ episode_display_title | escape }}"
         >
-          {{ site.settings.show_notes_label | default: 'Show notes' }}
+          {{ 'podcast.show_notes' | t }}
         </a>
       </div>
     </div>

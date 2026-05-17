@@ -50,6 +50,15 @@
       "close_sidebar": "メニューを閉じる"
     }
   },
+  "podcast": {
+    "episodes_heading": "エピソード",
+    "listen": "聴く",
+    "show_notes": "ショーノート",
+    "about": "概要",
+    "show_more": "もっと見る",
+    "channels": "チャンネル",
+    "recent_updates": "最新の更新"
+  },
   "paginate": {
     "showing": "表示中",
     "total": "合計",

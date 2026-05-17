@@ -1,0 +1,46 @@
+{%- comment -%}
+  Horizontal channel switcher for multi-channel podcast sites.
+  @param channels - array of channel pages
+  @param current_channel - active channel page (highlighted)
+  @param home_channel_href - optional href for the current channel on the index (e.g. site.index_path)
+{%- endcomment -%}
+
+{%- assign nav_label = 'podcast.channels' | t -%}
+
+<nav class="mt-6" aria-label="{{ nav_label | escape }}">
+  <p class="mb-3 flex items-center gap-2 font-mono text-xs font-semibold tracking-wide text-base-content/55 uppercase">
+    <span class="inline-block h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true"></span>
+    {{ nav_label }}
+  </p>
+
+  <div class="rounded-2xl border border-base-300 bg-base-200/70 p-1.5 shadow-sm ring-1 ring-base-content/5">
+    <ul class="flex flex-col gap-1 sm:flex-row sm:flex-wrap">
+      {%- for ch in channels -%}
+        {%- assign is_current = false -%}
+        {%- if current_channel and ch.id == current_channel.id -%}
+          {%- assign is_current = true -%}
+        {%- endif -%}
+        {%- if is_current and home_channel_href -%}
+          {%- assign ch_href = home_channel_href -%}
+        {%- else -%}
+          {%- assign ch_href = ch.path -%}
+        {%- endif -%}
+
+        <li class="min-w-0 flex-1 sm:flex-auto">
+          <a
+            href="{{ ch_href }}"
+            data-turbo-frame="main-content-frame"
+            data-turbo-action="advance"
+            class="flex w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-[color,background-color,box-shadow] duration-150 {% if is_current %}bg-primary text-primary-content shadow-md ring-1 ring-primary/25{% else %}text-base-content/85 hover:bg-base-100 hover:text-primary active:bg-base-100{% endif %}"
+            {% if is_current %}aria-current="page"{% endif %}
+          >
+            {%- if is_current -%}
+              <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-primary-content" aria-hidden="true"></span>
+            {%- endif -%}
+            <span class="truncate">{{ ch.link_text }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</nav>

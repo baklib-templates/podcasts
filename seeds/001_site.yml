@@ -1,16 +1,8 @@
 site:
   language: 'en'
   settings:
-    # General settings (see settings_schema.json).
-    is_allow_header: false
-    is_allow_footer: false
-    is_allow_feedback: false
-    is_show_visit_count: false
-
-    # Podcast settings
     podcast_title: "Their Side"
     podcast_tagline: "Conversations with the most tragically misunderstood people of our time."
-    podcast_hosts: "Eric Gordon / Wes Mantooth"
     podcast_about: |
       In this show, Eric and Wes dig deep to get to the facts with guests who have been labeled villains by a society quick to judge, without actually getting the full story. Tune in every Thursday to get to the truth with another misunderstood outcast as they share the missing context in their tragic tale.
     poster_image_url: "images/poster.png"
@@ -33,14 +25,4 @@ site:
         <span class="hidden sm:ml-3 sm:block">RSS Feed</span>
       </a>
 
-    episodes_label: "Episodes"
-    listen_label: "Listen"
-    show_notes_label: "Show notes"
-    about_label: "About"
-    show_more_label: "Show more"
-    hosted_by_label: "Hosted by"
-
-    # Custom HTML (see settings_schema.json)
     head_html: ""
-    header_menu_html: ""
-    footer_menu_html: ""

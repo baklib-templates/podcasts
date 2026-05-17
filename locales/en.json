@@ -27,6 +27,15 @@
       "visit_count": "Visits"
     }
   },
+  "podcast": {
+    "episodes_heading": "Episodes",
+    "listen": "Listen",
+    "show_notes": "Show notes",
+    "about": "About",
+    "show_more": "Show more",
+    "channels": "Channels",
+    "recent_updates": "Recent updates"
+  },
   "paginate": {
     "showing": "currently showing",
     "total": "total",

@@ -2,8 +2,8 @@
   {
     "name": "theme_info",
     "theme_name": "podcasts",
-    "theme_label": "podcasts",
-    "theme_description": "一个播客、音频集合站",
+    "theme_label": "t:schema.theme_label",
+    "theme_description": "t:schema.theme_description",
     "theme_version": "2.0.2",
     "theme_syntax_version": "v2",
     "theme_scope": "cms",
@@ -66,128 +66,43 @@
     }
   },
   {
-    "name": "t:schema.generic.name",
-    "settings": [
-      {
-        "id": "sort_rule",
-        "type": "select",
-        "label": "t:schema.generic.settings.sort_rule.label",
-        "choices": [
-          {"label": "t:schema.generic.settings.sort_rule.options.created_at_desc", "value": "-created_at"},
-          {"label": "t:schema.generic.settings.sort_rule.options.created_at_asc", "value": "created_at"},
-          {"label": "t:schema.generic.settings.sort_rule.options.edited_at_desc", "value": "-edited_at"},
-          {"label": "t:schema.generic.settings.sort_rule.options.edited_at_asc", "value": "edited_at"},
-          {"label": "t:schema.generic.settings.sort_rule.options.visit_count_desc", "value": "-visit_count"},
-          {"label": "t:schema.generic.settings.sort_rule.options.visit_count_asc", "value": "visit_count"},
-          {"label": "t:schema.generic.settings.sort_rule.options.manual", "value": ""}
-        ],
-        "default": "-created_at"
-      },
-      {
-        "id": "is_allow_feedback",
-        "type": "checkbox",
-        "label": "t:schema.generic.settings.is_allow_feedback.label",
-        "default": true
-      },
-      {
-        "id": "is_show_visit_count",
-        "type": "checkbox",
-        "label": "t:schema.generic.settings.is_show_visit_count.label",
-        "default": true
-      },
-      {
-        "id": "is_allow_header",
-        "type": "checkbox",
-        "label": "t:schema.generic.settings.is_allow_header.label",
-        "default": true
-      },
-      {
-        "id": "is_allow_footer",
-        "type": "checkbox",
-        "label": "t:schema.generic.settings.is_allow_footer.label",
-        "default": true
-      }
-    ]
-  },
-  {
-    "name": "Podcast",
+    "name": "t:schema.podcast.name",
     "settings": [
       {
         "id": "poster_image_url",
         "type": "image_picker",
         "ratio": "1:1",
         "width": 200,
-        "label": "Poster image"
+        "label": "t:schema.podcast.settings.poster_image_url.label"
       },
       {
         "id": "podcast_title",
         "type": "text",
-        "label": "Podcast title"
+        "label": "t:schema.podcast.settings.podcast_title.label"
       },
       {
         "id": "podcast_tagline",
         "type": "textarea",
-        "label": "Tagline"
+        "label": "t:schema.podcast.settings.podcast_tagline.label"
       },
       {
         "id": "podcast_about",
         "type": "textarea",
         "to_markdown": true,
-        "label": "About"
-      },
-      {
-        "id": "podcast_hosts",
-        "type": "text",
-        "label": "Hosts (text)"
+        "label": "t:schema.podcast.settings.podcast_about.label"
       },
       {
         "id": "show_episode_cover",
         "type": "checkbox",
-        "label": "是否展示封面",
+        "label": "t:schema.podcast.settings.show_episode_cover.label",
         "default": false,
-        "info": "开启后：列表左侧与详情页标题区右侧展示单集封面（1:1）。"
+        "info": "t:schema.podcast.settings.show_episode_cover.info"
       },
       {
         "id": "header_html",
         "type": "html",
-        "label": "Sidebar header HTML",
-        "info": "Custom sidebar navigation HTML (e.g. Spotify/Apple/Overcast/RSS links)."
-      },
-      {
-        "id": "episodes_label",
-        "type": "text",
-        "label": "Episodes label",
-        "default": "Episodes"
-      },
-      {
-        "id": "listen_label",
-        "type": "text",
-        "label": "Listen label",
-        "default": "Listen"
-      },
-      {
-        "id": "show_notes_label",
-        "type": "text",
-        "label": "Show notes label",
-        "default": "Show notes"
-      },
-      {
-        "id": "about_label",
-        "type": "text",
-        "label": "About label",
-        "default": "About"
-      },
-      {
-        "id": "show_more_label",
-        "type": "text",
-        "label": "Show more label",
-        "default": "Show more"
-      },
-      {
-        "id": "hosted_by_label",
-        "type": "text",
-        "label": "Hosted by label",
-        "default": "Hosted by"
+        "label": "t:schema.podcast.settings.header_html.label",
+        "info": "t:schema.podcast.settings.header_html.info"
       }
     ]
   },
@@ -201,22 +116,6 @@
         "info": "t:schema.custom_html.settings.head_html.info",
         "rows": 10,
         "placeholder": "t:schema.custom_html.settings.head_html.placeholder"
-      },
-      {
-        "id": "header_menu_html",
-        "type": "html",
-        "label": "t:schema.custom_html.settings.header_menu_html.label",
-        "info": "t:schema.custom_html.settings.header_menu_html.info",
-        "rows": 6,
-        "placeholder": "t:schema.custom_html.settings.header_menu_html.placeholder"
-      },
-      {
-        "id": "footer_menu_html",
-        "type": "html",
-        "label": "t:schema.custom_html.settings.footer_menu_html.label",
-        "info": "t:schema.custom_html.settings.footer_menu_html.info",
-        "rows": 6,
-        "placeholder": "t:schema.custom_html.settings.footer_menu_html.placeholder"
       }
     ]
   }

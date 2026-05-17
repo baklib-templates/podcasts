@@ -13,8 +13,11 @@
 {%- assign published_at = page.published_at | default: page.created_at -%}
 {%- assign episode_audio_src = episode_audio_asset | default: episode_audio_url | default: '/assets/audio/demo.mp3' -%}
 
-<article class="py-16 lg:py-36">
+<article class="py-8 lg:py-24">
   <div class="mx-auto px-4 sm:px-6 md:max-w-4xl md:px-4 lg:px-8 xl:px-12">
+    <div class="mb-8">
+      {% render 'breadcrumb', breadcrumb: page.breadcrumb %}
+    </div>
     <header class="flex flex-col">
       <div class="flex items-start gap-6">
         <button
@@ -82,6 +85,7 @@
         "id": "episode_number",
         "type": "text",
         "placeholder": "",
+        "to_markdown": true,
         "label": "t:schema.templates.page.settings.episode_number.label",
         "info": "t:schema.templates.page.settings.episode_number.info"
       },
@@ -96,13 +100,15 @@
         "type": "text",
         "placeholder": "https://example.com/audio.mp3",
         "label": "t:schema.templates.page.settings.audio_url.label",
-        "info": "t:schema.templates.page.settings.audio_url.info"
+        "info": "t:schema.templates.page.settings.audio_url.info",
+        "to_markdown": true
       },
       {
         "id": "audio_asset",
         "type": "dam_picker",
         "label": "t:schema.templates.page.settings.audio_asset.label",
-        "info": "t:schema.templates.page.settings.audio_asset.info"
+        "info": "t:schema.templates.page.settings.audio_asset.info",
+        "to_markdown": true
       },
       {
         "id": "tags",

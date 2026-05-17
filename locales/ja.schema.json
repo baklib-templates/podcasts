@@ -58,32 +58,28 @@
       "description": "公開日時で並べ替え可能なカードグリッド型ホーム。"
     }
   },
-  "generic": {
-    "name": "一般設定",
+  "podcast": {
+    "name": "ポッドキャスト",
     "settings": {
-      "is_allow_feedback": {
-        "label": "ユーザーフィードバックを表示"
+      "poster_image_url": {
+        "label": "ポスター画像"
       },
-      "is_show_visit_count": {
-        "label": "アクセス数を表示"
+      "podcast_title": {
+        "label": "ポッドキャスト名"
       },
-      "is_allow_header": {
-        "label": "ヘッダー部分を表示"
+      "podcast_tagline": {
+        "label": "タグライン"
       },
-      "is_allow_footer": {
-        "label": "フッター部分を表示"
+      "podcast_about": {
+        "label": "概要"
       },
-      "sort_rule": {
-        "label": "ホームページリスト表示ルール",
-        "options": {
-          "created_at_desc": "作成日時 - 降順",
-          "created_at_asc": "作成日時 - 昇順",
-          "edited_at_desc": "更新日時 - 降順",
-          "edited_at_asc": "更新日時 - 昇順",
-          "visit_count_desc": "アクセス数（多い順）",
-          "visit_count_asc": "アクセス数（少ない順）",
-          "manual": "手動ソート"
-        }
+      "show_episode_cover": {
+        "label": "エピソードカバーを表示",
+        "info": "有効にすると、一覧と詳細ヘッダーに 1:1 のカバーを表示します。"
+      },
+      "header_html": {
+        "label": "サイドバー収聴リンク HTML",
+        "info": "Spotify / Apple Podcasts / RSS などのカスタム HTML。"
       }
     }
   },
@@ -94,16 +90,6 @@
         "label": "<head></head>タグ内のカスタムHTML",
         "info": "HTMLタグと限定的なTailwindCSSスタイルコードをサポート",
         "placeholder": "通常、アクセス解析、カスタマーサービスボットなどを挿入"
-      },
-      "header_menu_html": {
-        "label": "トップナビゲーション領域にHTMLを挿入",
-        "info": "HTMLタグと限定的なTailwindCSSスタイルコードをサポート",
-        "placeholder": "通常、会社の他のウェブサイトのナビゲーションリンクを挿入"
-      },
-      "footer_menu_html": {
-        "label": "フッター領域にHTMLを挿入",
-        "info": "HTMLタグと限定的なTailwindCSSスタイルコードをサポート",
-        "placeholder": "通常、外部ナビゲーションリンク、友情リンク、SEO最適化リンクなどを挿入"
       }
     }
   }

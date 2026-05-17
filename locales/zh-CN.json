@@ -27,6 +27,15 @@
       "visit_count": "访问量"
     }
   },
+  "podcast": {
+    "episodes_heading": "节目",
+    "listen": "收听",
+    "show_notes": "节目笔记",
+    "about": "关于",
+    "show_more": "展开更多",
+    "channels": "频道",
+    "recent_updates": "最新更新"
+  },
   "paginate": {
     "showing": "当前显示第",
     "total": "总共",

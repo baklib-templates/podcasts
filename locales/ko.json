@@ -50,6 +50,15 @@
       "close_sidebar": "메뉴 닫기"
     }
   },
+  "podcast": {
+    "episodes_heading": "에피소드",
+    "listen": "듣기",
+    "show_notes": "쇼 노트",
+    "about": "소개",
+    "show_more": "더 보기",
+    "channels": "채널",
+    "recent_updates": "최근 업데이트"
+  },
   "paginate": {
     "showing": "현재 표시",
     "total": "전체",
