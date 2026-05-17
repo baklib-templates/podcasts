@@ -57,7 +57,29 @@
     "about": "關於",
     "show_more": "展開更多",
     "channels": "頻道",
-    "recent_updates": "最新更新"
+    "recent_updates": "最新更新",
+    "v2": {
+      "sidebar_label": "播客導覽",
+      "nav_home": "主頁",
+      "nav_latest": "最新單集",
+      "nav_shows": "節目",
+      "home_title": "主頁",
+      "up_next": "待播清單",
+      "continue": "繼續",
+      "favorite_shows": "你的最愛節目",
+      "more_like": "根據收聽內容",
+      "you_might_like": "你可能還喜歡",
+      "show_updates": "最近更新",
+      "play_latest": "最新單集",
+      "back": "返回",
+      "share": "共享",
+      "more": "更多",
+      "download": "下載",
+      "player_label": "播放控制",
+      "rewind_15": "後退 15 秒",
+      "forward_30": "前進 30 秒",
+      "progress": "播放進度"
+    }
   },
   "paginate": {
     "showing": "當前顯示第",

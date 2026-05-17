@@ -56,6 +56,26 @@
     "index_card": {
       "name": "首页（卡片）",
       "description": "卡片网格样式首页，支持按发布时间排序。"
+    },
+    "index_v2": {
+      "name": "首页（macOS 播客）",
+      "description": "仿 macOS 播客应用的双栏首页，含待播清单与节目网格。"
+    },
+    "channel_v2": {
+      "name": "栏目（macOS 播客）",
+      "description": "仿 macOS 播客的栏目页，含色块头图与单集列表。",
+      "settings": {
+        "header_color": {
+          "label": "头图背景色"
+        },
+        "cover_image_url": {
+          "label": "栏目封面"
+        }
+      }
+    },
+    "page_v2": {
+      "name": "单集（macOS 播客）",
+      "description": "仿 macOS 播客的单集详情页。"
     }
   },
   "podcast": {

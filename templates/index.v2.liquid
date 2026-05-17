@@ -1,0 +1,61 @@
+{% layout "theme.v2" %}
+
+{%- assign channels = site.pages['/'].children_in_list -%}
+{%- assign queue_episodes = site.pages | where: 'template_name', 'page' | order_by: '-published_at' | limit: 6 -%}
+{%- assign channels_size = channels | size -%}
+
+<div class="v2-main-scroll">
+  <div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 md:px-8">
+    <h1 class="v2-section-title">{{ 'podcast.v2.home_title' | t }}</h1>
+
+    <section class="mt-8" aria-labelledby="v2-up-next-heading">
+      <h2 id="v2-up-next-heading" class="text-lg font-bold text-base-content">
+        {{ 'podcast.v2.up_next' | t }}
+      </h2>
+      <div class="v2-queue-scroll mt-4">
+        {%- for ep in queue_episodes -%}
+          {% render 'v2/queue_card', episode: ep %}
+        {%- else -%}
+          <p class="text-sm text-base-content/60">{{ 'generic.empty' | t }}</p>
+        {%- endfor -%}
+      </div>
+    </section>
+
+    <section id="episodes" class="mt-10" aria-labelledby="v2-shows-heading">
+      <h2 id="v2-shows-heading" class="text-lg font-bold text-base-content">
+        {{ 'podcast.v2.favorite_shows' | t }}
+      </h2>
+      <div class="v2-show-grid mt-4">
+        {%- if channels_size > 0 -%}
+          {%- for ch in channels -%}
+            {% render 'v2/show_tile', show_page: ch %}
+          {%- endfor -%}
+        {%- else -%}
+          {% render 'v2/show_tile', show_page: page %}
+        {%- endif -%}
+      </div>
+    </section>
+
+    {%- if channels_size > 1 -%}
+      <section class="mt-10" aria-labelledby="v2-more-heading">
+        <p id="v2-more-heading" class="text-sm text-base-content/55">{{ 'podcast.v2.more_like' | t }}</p>
+        <h2 class="mt-1 text-lg font-bold text-base-content">{{ 'podcast.v2.you_might_like' | t }}</h2>
+        <div class="v2-show-grid mt-4">
+          {%- for ch in channels limit: 8 offset: 1 -%}
+            {% render 'v2/show_tile', show_page: ch %}
+          {%- endfor -%}
+        </div>
+      </section>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:schema.templates.index_v2.name",
+  "description": "t:schema.templates.index_v2.description",
+  "thumb_url": "images/theme/index-card.png",
+  "preview_image_urls": ["images/theme/index-card.png"],
+  "sub_page_templates": ["channel.v2"]
+}
+{% endschema %}

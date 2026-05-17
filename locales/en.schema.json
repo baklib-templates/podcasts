@@ -56,6 +56,26 @@
     "index_card": {
       "name": "Home (cards)",
       "description": "Card grid home with sorting by publish date."
+    },
+    "index_v2": {
+      "name": "Home (macOS Podcasts)",
+      "description": "Two-pane home inspired by macOS Podcasts with Up Next and show grid."
+    },
+    "channel_v2": {
+      "name": "Channel (macOS Podcasts)",
+      "description": "Channel page with hero band and episode list, macOS Podcasts style.",
+      "settings": {
+        "header_color": {
+          "label": "Hero background color"
+        },
+        "cover_image_url": {
+          "label": "Channel cover"
+        }
+      }
+    },
+    "page_v2": {
+      "name": "Episode (macOS Podcasts)",
+      "description": "Episode detail page styled like macOS Podcasts."
     }
   },
   "podcast": {

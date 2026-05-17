@@ -57,7 +57,29 @@
     "about": "概要",
     "show_more": "もっと見る",
     "channels": "チャンネル",
-    "recent_updates": "最新の更新"
+    "recent_updates": "最新の更新",
+    "v2": {
+      "sidebar_label": "ポッドキャストナビ",
+      "nav_home": "ホーム",
+      "nav_latest": "最新エピソード",
+      "nav_shows": "番組",
+      "home_title": "ホーム",
+      "up_next": "次に再生",
+      "continue": "続きから",
+      "favorite_shows": "お気に入りの番組",
+      "more_like": "視聴内容に基づく",
+      "you_might_like": "こちらもおすすめ",
+      "show_updates": "最近の更新",
+      "play_latest": "最新エピソード",
+      "back": "戻る",
+      "share": "共有",
+      "more": "その他",
+      "download": "ダウンロード",
+      "player_label": "再生コントロール",
+      "rewind_15": "15秒戻る",
+      "forward_30": "30秒進む",
+      "progress": "再生位置"
+    }
   },
   "paginate": {
     "showing": "表示中",

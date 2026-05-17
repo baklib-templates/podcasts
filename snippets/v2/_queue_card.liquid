@@ -1,0 +1,64 @@
+{%- comment -%}
+  @param episode - page drop (episode)
+  @param cover_url - optional cover image URL
+{%- endcomment -%}
+
+{%- assign ep = episode -%}
+{%- assign ep_title = ep.link_text | presence -%}
+{%- assign ep_description = ep.settings.description | presence -%}
+{%- assign ep_audio_asset = ep.settings.audio_asset | presence -%}
+{%- assign ep_audio_url = ep.settings.audio_url | presence -%}
+{%- assign ep_audio_type = ep.settings.audio_type | presence -%}
+{%- assign ep_number = ep.settings.episode_number | presence -%}
+{%- assign ep_display_title = ep_title -%}
+{%- if ep_number -%}
+  {%- capture ep_display_title -%}{{ ep_number }}: {{ ep_title }}{%- endcapture -%}
+{%- endif -%}
+{%- assign ep_published = ep.published_at | default: ep.created_at -%}
+{%- assign ep_audio_src = ep_audio_asset | default: ep_audio_url | default: '/assets/audio/demo.mp3' -%}
+{%- assign default_poster = 'images/poster.png' | asset_url -%}
+{%- assign card_cover = cover_url | default: ep.settings.thumb_image_url | default: site.settings.poster_image_url | default: default_poster -%}
+
+<article class="v2-queue-card">
+  <a
+    href="{{ ep.path }}"
+    data-turbo-frame="main-content-frame"
+    data-turbo-action="advance"
+    class="block aspect-[4/3] overflow-hidden bg-base-200"
+  >
+    <img src="{{ card_cover }}" alt="" class="h-full w-full object-cover" loading="lazy" />
+  </a>
+  <div class="flex flex-1 flex-col gap-2 p-3">
+    {%- if ep_published -%}
+      <p class="text-xs text-base-content/55">
+        {{ 'podcast.v2.continue' | t }} · {{ ep_published | date: '%b %e' }}
+      </p>
+    {%- endif -%}
+    <h3 class="text-sm font-bold leading-snug text-base-content">
+      <a href="{{ ep.path }}" data-turbo-frame="main-content-frame" data-turbo-action="advance">{{ ep_display_title }}</a>
+    </h3>
+    {%- if ep_description -%}
+      <p class="v2-line-clamp-2 text-xs leading-relaxed text-base-content/65">{{ ep_description }}</p>
+    {%- endif -%}
+    <div class="mt-auto flex items-center justify-between gap-2 pt-1">
+      <button
+        type="button"
+        class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:opacity-80"
+        @click="$store.player.toggle({ id: '{{ ep.id }}', title: '{{ ep_display_title | escape_once }}', path: '{{ ep.path | escape_once }}', audioSrc: '{{ ep_audio_src | escape_once }}', audioType: '{{ ep_audio_type | default: '' | escape_once }}' })"
+        :aria-label="($store.player.playing && $store.player.episode && $store.player.episode.id === '{{ ep.id }}') ? 'Pause' : 'Play'"
+      >
+        <span aria-hidden="true">▶</span>
+        <span>{{ 'podcast.listen' | t }}</span>
+      </button>
+      <a
+        href="{{ ep.path }}"
+        data-turbo-frame="main-content-frame"
+        data-turbo-action="advance"
+        class="v2-icon-btn !h-8 !w-8"
+        aria-label="{{ 'podcast.show_notes' | t }}"
+      >
+        <span aria-hidden="true">⋯</span>
+      </a>
+    </div>
+  </div>
+</article>

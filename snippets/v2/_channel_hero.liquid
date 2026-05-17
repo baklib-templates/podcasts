@@ -1,0 +1,51 @@
+{%- comment -%}
+  @param channel - channel page drop
+  @param latest_episode - optional latest child episode for play CTA
+{%- endcomment -%}
+
+{%- assign ch = channel -%}
+{%- assign default_poster = 'images/poster.png' | asset_url -%}
+{%- assign hero_cover = ch.settings.cover_image_url | default: site.settings.poster_image_url | default: default_poster -%}
+{%- assign hero_color = ch.settings.header_color | default: '#FFD60A' -%}
+{%- assign ch_title = ch.link_text | presence | default: site.settings.podcast_title | default: site.name -%}
+{%- assign ch_description = ch.settings.description | default: site.settings.podcast_tagline -%}
+{%- assign latest = latest_episode -%}
+
+<section class="v2-channel-hero" style="background-color: {{ hero_color }};">
+  <div class="mx-auto max-w-5xl">
+    {% render 'v2/page_toolbar', back_href: site.index_path, show_actions: true %}
+
+    <div class="mt-4 flex flex-col gap-6 sm:flex-row sm:items-end">
+      <div class="shrink-0">
+        <img
+          src="{{ hero_cover }}"
+          alt=""
+          class="h-40 w-40 rounded-xl object-cover shadow-lg ring-1 ring-base-content/10 sm:h-48 sm:w-48"
+          loading="eager"
+        />
+      </div>
+      <div class="min-w-0 flex-1 pb-2">
+        <h1 class="text-3xl font-bold tracking-tight text-base-content sm:text-4xl">{{ ch_title }}</h1>
+        {%- if site.settings.podcast_title -%}
+          <p class="mt-1 text-sm font-medium text-base-content/75">{{ site.settings.podcast_title }}</p>
+        {%- endif -%}
+        {%- if ch_description -%}
+          <p class="mt-3 max-w-2xl text-sm leading-relaxed text-base-content/80">{{ ch_description }}</p>
+        {%- endif -%}
+        {%- if latest -%}
+          {%- assign latest_title = latest.link_text | escape_once -%}
+          {%- assign latest_audio = latest.settings.audio_asset | default: latest.settings.audio_url | default: '/assets/audio/demo.mp3' -%}
+          {%- assign latest_type = latest.settings.audio_type | default: '' | escape_once -%}
+          <button
+            type="button"
+            class="v2-pill-btn-neutral mt-5"
+            @click="$store.player.play({ id: '{{ latest.id }}', title: '{{ latest_title }}', path: '{{ latest.path | escape_once }}', audioSrc: '{{ latest_audio | escape_once }}', audioType: '{{ latest_type }}' })"
+          >
+            <span aria-hidden="true">▶</span>
+            {{ 'podcast.v2.play_latest' | t }}
+          </button>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>

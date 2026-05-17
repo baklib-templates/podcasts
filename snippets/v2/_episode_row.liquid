@@ -1,0 +1,58 @@
+{%- comment -%}
+  @param episode - page drop
+  @param channel_cover - optional fallback cover for thumbnail
+{%- endcomment -%}
+
+{%- assign ep = episode -%}
+{%- assign ep_title = ep.link_text | presence -%}
+{%- assign ep_description = ep.settings.description | presence -%}
+{%- assign ep_audio_asset = ep.settings.audio_asset | presence -%}
+{%- assign ep_audio_url = ep.settings.audio_url | presence -%}
+{%- assign ep_audio_type = ep.settings.audio_type | presence -%}
+{%- assign ep_number = ep.settings.episode_number | presence -%}
+{%- assign ep_display_title = ep_title -%}
+{%- if ep_number -%}
+  {%- capture ep_display_title -%}{{ ep_number }}: {{ ep_title }}{%- endcapture -%}
+{%- endif -%}
+{%- assign ep_published = ep.published_at | default: ep.created_at -%}
+{%- assign ep_audio_src = ep_audio_asset | default: ep_audio_url | default: '/assets/audio/demo.mp3' -%}
+{%- assign default_poster = 'images/poster.png' | asset_url -%}
+{%- assign row_thumb = ep.settings.thumb_image_url | default: channel_cover | default: site.settings.poster_image_url | default: default_poster -%}
+
+<article class="v2-episode-row" aria-labelledby="v2-ep-{{ ep.id }}-title">
+  <div class="min-w-0 flex-1">
+    {%- if ep_published -%}
+      <time datetime="{{ ep_published | date: '%Y-%m-%d' }}" class="text-xs text-base-content/55">
+        {{ ep_published | date: '%b %e, %Y' }}
+      </time>
+    {%- endif -%}
+    <h3 id="v2-ep-{{ ep.id }}-title" class="mt-1 text-base font-bold text-base-content">
+      <a href="{{ ep.path }}" data-turbo-frame="main-content-frame" data-turbo-action="advance">{{ ep_display_title }}</a>
+    </h3>
+    {%- if ep_description -%}
+      <p class="v2-line-clamp-2 mt-1 text-sm leading-relaxed text-base-content/65">{{ ep_description }}</p>
+    {%- endif -%}
+    <button
+      type="button"
+      class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:opacity-80"
+      @click="$store.player.toggle({ id: '{{ ep.id }}', title: '{{ ep_display_title | escape_once }}', path: '{{ ep.path | escape_once }}', audioSrc: '{{ ep_audio_src | escape_once }}', audioType: '{{ ep_audio_type | default: '' | escape_once }}' })"
+    >
+      <span aria-hidden="true">▶</span>
+      <span>{{ 'podcast.listen' | t }}</span>
+    </button>
+  </div>
+
+  <div class="flex shrink-0 flex-col items-end gap-2">
+    <a
+      href="{{ ep.path }}"
+      data-turbo-frame="main-content-frame"
+      data-turbo-action="advance"
+      class="block h-16 w-16 overflow-hidden rounded-lg bg-base-200 ring-1 ring-base-content/10 sm:h-20 sm:w-20"
+    >
+      <img src="{{ row_thumb }}" alt="" class="h-full w-full object-cover" loading="lazy" />
+    </a>
+    <button type="button" class="v2-icon-btn !h-7 !w-7 opacity-40" disabled aria-hidden="true">
+      <span class="text-xs">⋯</span>
+    </button>
+  </div>
+</article>

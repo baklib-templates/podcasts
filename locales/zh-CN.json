@@ -34,7 +34,29 @@
     "about": "关于",
     "show_more": "展开更多",
     "channels": "频道",
-    "recent_updates": "最新更新"
+    "recent_updates": "最新更新",
+    "v2": {
+      "sidebar_label": "播客导航",
+      "nav_home": "主页",
+      "nav_latest": "最新单集",
+      "nav_shows": "节目",
+      "home_title": "主页",
+      "up_next": "待播清单",
+      "continue": "继续",
+      "favorite_shows": "你的最爱节目",
+      "more_like": "基于收听内容",
+      "you_might_like": "你可能还喜欢",
+      "show_updates": "最近更新",
+      "play_latest": "最新单集",
+      "back": "返回",
+      "share": "共享",
+      "more": "更多",
+      "download": "下载",
+      "player_label": "播放控制",
+      "rewind_15": "后退 15 秒",
+      "forward_30": "前进 30 秒",
+      "progress": "播放进度"
+    }
   },
   "paginate": {
     "showing": "当前显示第",

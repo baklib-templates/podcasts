@@ -1,0 +1,29 @@
+{%- comment -%}
+  @param show_page - channel page or site root page
+  @param cover_url - optional cover override
+{%- endcomment -%}
+
+{%- assign show = show_page -%}
+{%- assign default_poster = 'images/poster.png' | asset_url -%}
+{%- assign tile_cover = cover_url | default: site.settings.poster_image_url | default: default_poster -%}
+{%- assign show_title = show.link_text | default: site.settings.podcast_title | default: site.name -%}
+
+<a
+  href="{{ show.path }}"
+  data-turbo-frame="main-content-frame"
+  data-turbo-action="advance"
+  class="group flex flex-col gap-2"
+>
+  <div class="v2-show-tile-cover">
+    <img
+      src="{{ tile_cover }}"
+      alt=""
+      class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+      loading="lazy"
+    />
+  </div>
+  <div class="min-w-0">
+    <p class="truncate text-sm font-semibold text-base-content">{{ show_title }}</p>
+    <p class="truncate text-xs text-base-content/55">{{ 'podcast.v2.show_updates' | t }}</p>
+  </div>
+</a>

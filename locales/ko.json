@@ -57,7 +57,29 @@
     "about": "소개",
     "show_more": "더 보기",
     "channels": "채널",
-    "recent_updates": "최근 업데이트"
+    "recent_updates": "최근 업데이트",
+    "v2": {
+      "sidebar_label": "팟캐스트 탐색",
+      "nav_home": "홈",
+      "nav_latest": "최신 에피소드",
+      "nav_shows": "프로그램",
+      "home_title": "홈",
+      "up_next": "재생 대기",
+      "continue": "이어서",
+      "favorite_shows": "즐겨 찾는 프로그램",
+      "more_like": "청취 기록 기반",
+      "you_might_like": "추천 프로그램",
+      "show_updates": "최근 업데이트",
+      "play_latest": "최신 에피소드",
+      "back": "뒤로",
+      "share": "공유",
+      "more": "더 보기",
+      "download": "다운로드",
+      "player_label": "재생 컨트롤",
+      "rewind_15": "15초 되감기",
+      "forward_30": "30초 앞으로",
+      "progress": "재생 진행률"
+    }
   },
   "paginate": {
     "showing": "현재 표시",

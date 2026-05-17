@@ -1,0 +1,38 @@
+{%- comment -%}
+  @param back_href - optional back link URL
+  @param back_label - optional accessible label
+  @param show_actions - show share / more placeholders (default true)
+{%- endcomment -%}
+
+{%- assign toolbar_back = back_href | default: site.index_path -%}
+{%- assign toolbar_back_label = back_label | default: ('podcast.v2.back' | t) -%}
+{%- assign toolbar_actions = show_actions | default: true -%}
+
+<div class="v2-toolbar">
+  <a
+    href="{{ toolbar_back }}"
+    data-turbo-frame="main-content-frame"
+    data-turbo-action="advance"
+    class="v2-icon-btn"
+    aria-label="{{ toolbar_back_label | escape }}"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true">
+      <path d="M15 18 9 12l6-6" />
+    </svg>
+  </a>
+
+  {%- if toolbar_actions -%}
+    <div class="flex items-center gap-2">
+      <button type="button" class="v2-icon-btn opacity-50" disabled aria-label="{{ 'podcast.v2.share' | t }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true">
+          <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13" />
+        </svg>
+      </button>
+      <button type="button" class="v2-icon-btn opacity-50" disabled aria-label="{{ 'podcast.v2.more' | t }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+          <circle cx="5" cy="12" r="1.5" /><circle cx="12" cy="12" r="1.5" /><circle cx="19" cy="12" r="1.5" />
+        </svg>
+      </button>
+    </div>
+  {%- endif -%}
+</div>

@@ -1,0 +1,101 @@
+{% layout "theme.v2" %}
+
+{%- assign episode_title = page.link_text | presence -%}
+{%- assign episode_description = page.settings.description | presence -%}
+{%- assign episode_content = page.settings.content | presence -%}
+{%- assign episode_audio_asset = page.settings.audio_asset | presence -%}
+{%- assign episode_audio_url = page.settings.audio_url | presence -%}
+{%- assign episode_audio_type = page.settings.audio_type | presence -%}
+{%- assign episode_number = page.settings.episode_number | presence -%}
+{%- assign episode_thumb_image_url = page.settings.thumb_image_url | presence -%}
+{%- assign episode_display_title = episode_title -%}
+{%- if episode_number -%}
+  {%- capture episode_display_title -%}{{ episode_number }}: {{ episode_title }}{%- endcapture -%}
+{%- endif -%}
+{%- assign published_at = page.published_at | default: page.created_at -%}
+{%- assign episode_audio_src = episode_audio_asset | default: episode_audio_url | default: '/assets/audio/demo.mp3' -%}
+
+{% render 'v2/episode_hero',
+  episode_title: episode_title,
+  episode_display_title: episode_display_title,
+  episode_description: episode_description,
+  episode_thumb_image_url: episode_thumb_image_url,
+  episode_audio_src: episode_audio_src,
+  episode_audio_type: episode_audio_type,
+  published_at: published_at,
+  page: page
+%}
+
+<div class="v2-main-scroll">
+  <article class="mx-auto max-w-3xl px-4 py-8 sm:px-6 md:px-8">
+    {%- if episode_content -%}
+      <div class="prose max-w-none prose-base text-base-content prose-headings:text-base-content prose-a:text-primary">
+        {{ episode_content }}
+      </div>
+    {%- endif -%}
+  </article>
+</div>
+
+{% schema %}
+{
+  "name": "t:schema.templates.page_v2.name",
+  "description": "t:schema.templates.page_v2.description",
+  "thumb_url": "images/theme/page.png",
+  "sub_page_templates": ["page.v2"],
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "t:schema.templates.page.settings.title.label",
+      "info": "t:schema.templates.page.settings.title.info"
+    },
+    {
+      "id": "episode_number",
+      "type": "text",
+      "to_markdown": true,
+      "label": "t:schema.templates.page.settings.episode_number.label",
+      "info": "t:schema.templates.page.settings.episode_number.info"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "to_markdown": true,
+      "label": "t:schema.templates.page.settings.description.label"
+    },
+    {
+      "id": "audio_url",
+      "type": "text",
+      "placeholder": "https://example.com/audio.mp3",
+      "label": "t:schema.templates.page.settings.audio_url.label",
+      "info": "t:schema.templates.page.settings.audio_url.info",
+      "to_markdown": true
+    },
+    {
+      "id": "audio_asset",
+      "type": "dam_picker",
+      "label": "t:schema.templates.page.settings.audio_asset.label",
+      "info": "t:schema.templates.page.settings.audio_asset.info",
+      "to_markdown": true
+    },
+    {
+      "id": "tags",
+      "type": "tag_picker",
+      "multiple": true,
+      "label": "t:schema.templates.page.settings.tags.label"
+    },
+    {
+      "id": "thumb_image_url",
+      "type": "image_picker",
+      "ratio": "1:1",
+      "width": 240,
+      "label": "t:schema.templates.page.settings.thumb_image_url.label"
+    },
+    {
+      "id": "content",
+      "type": "richtext",
+      "to_markdown": true,
+      "label": "t:schema.templates.page.settings.content.label"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,99 @@
+{%- assign channels = site.pages['/'].children_in_list -%}
+{%- assign podcast_title = site.settings.podcast_title | default: site.name -%}
+{%- assign root_path = site.index_path -%}
+
+<aside class="v2-sidebar hidden md:flex" aria-label="{{ 'podcast.v2.sidebar_label' | t }}">
+  <div class="flex w-full flex-col gap-4 px-3 py-4">
+    <form
+      action="{{ site.search_path }}"
+      method="get"
+      class="relative"
+      role="search"
+    >
+      <label class="sr-only" for="v2-sidebar-search">{{ 'generic.placeholders.search' | t }}</label>
+      <span class="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-base-content/45" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+      </span>
+      <input
+        id="v2-sidebar-search"
+        type="search"
+        name="q"
+        class="w-full rounded-lg border border-base-300 bg-base-100 py-2 pl-9 pr-3 text-sm text-base-content placeholder:text-base-content/40 focus:border-primary/40 focus:outline-none focus:ring-2 focus:ring-primary/20"
+        placeholder="{{ 'generic.placeholders.search' | t }}"
+        autocomplete="off"
+      />
+    </form>
+
+    <nav class="flex flex-col gap-0.5">
+      {%- assign home_active = false -%}
+      {%- if page.path == root_path -%}
+        {%- assign home_active = true -%}
+      {%- endif -%}
+      <a
+        href="{{ root_path }}"
+        data-turbo-frame="main-content-frame"
+        data-turbo-action="advance"
+        class="v2-nav-link {% if home_active %}v2-nav-link-active{% endif %}"
+        {% if home_active %}aria-current="page"{% endif %}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="h-4 w-4 shrink-0" aria-hidden="true">
+          <path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5Z" />
+        </svg>
+        {{ 'podcast.v2.nav_home' | t }}
+      </a>
+
+      <a
+        href="{{ root_path }}#episodes"
+        data-turbo-frame="main-content-frame"
+        data-turbo-action="advance"
+        class="v2-nav-link"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="h-4 w-4 shrink-0" aria-hidden="true">
+          <path d="M4 6h16M4 12h10M4 18h14" />
+        </svg>
+        {{ 'podcast.v2.nav_latest' | t }}
+      </a>
+    </nav>
+
+    {%- assign channels_size = channels | size -%}
+    {%- if channels_size > 0 -%}
+      <div>
+        <p class="mb-1.5 px-2.5 text-xs font-semibold tracking-wide text-base-content/45 uppercase">
+          {{ 'podcast.v2.nav_shows' | t }}
+        </p>
+        <ul class="flex flex-col gap-0.5">
+          {%- for ch in channels -%}
+            {%- assign channel_active = false -%}
+            {%- if page.id == ch.id -%}
+              {%- assign channel_active = true -%}
+            {%- elsif page.parent and page.parent.id == ch.id -%}
+              {%- assign channel_active = true -%}
+            {%- endif -%}
+            <li>
+              <a
+                href="{{ ch.path }}"
+                data-turbo-frame="main-content-frame"
+                data-turbo-action="advance"
+                class="v2-nav-link {% if channel_active %}v2-nav-link-active{% endif %}"
+                {% if channel_active %}aria-current="page"{% endif %}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="h-4 w-4 shrink-0" aria-hidden="true">
+                  <rect x="4" y="4" width="16" height="16" rx="3" />
+                  <path d="M9 10v6l5-3-5-3Z" />
+                </svg>
+                <span class="truncate">{{ ch.link_text }}</span>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    <div class="mt-auto px-2.5 pt-2 text-xs text-base-content/50">
+      {{ podcast_title }}
+    </div>
+  </div>
+</aside>

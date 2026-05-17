@@ -56,6 +56,26 @@
     "index_card": {
       "name": "首頁（卡片）",
       "description": "卡片網格樣式首頁，支援依發佈時間排序。"
+    },
+    "index_v2": {
+      "name": "首頁（macOS 播客）",
+      "description": "仿 macOS 播客應用的雙欄首頁，含待播清單與節目網格。"
+    },
+    "channel_v2": {
+      "name": "欄目（macOS 播客）",
+      "description": "仿 macOS 播客的欄目頁，含色塊頭圖與單集列表。",
+      "settings": {
+        "header_color": {
+          "label": "頭圖背景色"
+        },
+        "cover_image_url": {
+          "label": "欄目封面"
+        }
+      }
+    },
+    "page_v2": {
+      "name": "單集（macOS 播客）",
+      "description": "仿 macOS 播客的單集詳情頁。"
     }
   },
   "podcast": {

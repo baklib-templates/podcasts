@@ -34,7 +34,29 @@
     "about": "About",
     "show_more": "Show more",
     "channels": "Channels",
-    "recent_updates": "Recent updates"
+    "recent_updates": "Recent updates",
+    "v2": {
+      "sidebar_label": "Podcast navigation",
+      "nav_home": "Home",
+      "nav_latest": "Latest episodes",
+      "nav_shows": "Shows",
+      "home_title": "Home",
+      "up_next": "Up Next",
+      "continue": "Continue",
+      "favorite_shows": "Your favorite shows",
+      "more_like": "Based on your listening",
+      "you_might_like": "You might also like",
+      "show_updates": "Recently updated",
+      "play_latest": "Latest episode",
+      "back": "Back",
+      "share": "Share",
+      "more": "More",
+      "download": "Download",
+      "player_label": "Playback controls",
+      "rewind_15": "Rewind 15 seconds",
+      "forward_30": "Forward 30 seconds",
+      "progress": "Playback progress"
+    }
   },
   "paginate": {
     "showing": "currently showing",

@@ -56,6 +56,26 @@
     "index_card": {
       "name": "ホーム（カード）",
       "description": "公開日時で並べ替え可能なカードグリッド型ホーム。"
+    },
+    "index_v2": {
+      "name": "ホーム（macOS Podcasts）",
+      "description": "macOS Podcasts風の二ペインホーム。次に再生と番組グリッド付き。"
+    },
+    "channel_v2": {
+      "name": "チャンネル（macOS Podcasts）",
+      "description": "ヒーローバンドとエピソード一覧の macOS Podcasts風チャンネルページ。",
+      "settings": {
+        "header_color": {
+          "label": "ヒーロー背景色"
+        },
+        "cover_image_url": {
+          "label": "チャンネルカバー"
+        }
+      }
+    },
+    "page_v2": {
+      "name": "エピソード（macOS Podcasts）",
+      "description": "macOS Podcasts風のエピソード詳細ページ。"
     }
   },
   "podcast": {

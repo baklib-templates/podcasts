@@ -1,0 +1,62 @@
+{% layout "theme.v2" %}
+
+{%- assign episode_list = page.children_in_list | order_by: '-published_at' -%}
+{%- assign latest_episode = episode_list | first -%}
+{%- assign default_poster = 'images/poster.png' | asset_url -%}
+{%- assign channel_cover = page.settings.cover_image_url | default: site.settings.poster_image_url | default: default_poster -%}
+
+{% render 'v2/channel_hero', channel: page, latest_episode: latest_episode %}
+
+<div class="v2-main-scroll">
+  <div class="mx-auto max-w-3xl px-4 py-6 sm:px-6 md:px-8">
+    <h2 class="text-xl font-bold text-base-content">
+      <a href="{{ page.path }}" data-turbo-frame="main-content-frame" data-turbo-action="advance">
+        {{ 'podcast.episodes_heading' | t }}
+        <span class="text-base-content/45" aria-hidden="true">›</span>
+      </a>
+    </h2>
+
+    <div class="mt-2 divide-y divide-base-300/60">
+      {% paginate_tag episode_list, as: 'episodes', per: 12 %}
+        {%- for ep in episodes -%}
+          {% render 'v2/episode_row', episode: ep, channel_cover: channel_cover %}
+        {%- else -%}
+          <p class="py-12 text-center text-sm text-base-content/60">{{ 'generic.empty' | t }}</p>
+        {%- endfor -%}
+
+        {% render 'paginate', paginate: paginate %}
+      {% endpaginate_tag %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:schema.templates.channel_v2.name",
+  "description": "t:schema.templates.channel_v2.description",
+  "thumb_url": "images/theme/index-card.png",
+  "preview_image_urls": ["images/theme/index-card.png"],
+  "sub_page_templates": ["page.v2"],
+  "settings": [
+    {
+      "id": "description",
+      "type": "textarea",
+      "to_markdown": true,
+      "label": "t:schema.templates.channel.settings.description.label"
+    },
+    {
+      "id": "header_color",
+      "type": "color",
+      "default": "#FFD60A",
+      "label": "t:schema.templates.channel_v2.settings.header_color.label"
+    },
+    {
+      "id": "cover_image_url",
+      "type": "image_picker",
+      "ratio": "1:1",
+      "width": 400,
+      "label": "t:schema.templates.channel_v2.settings.cover_image_url.label"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,92 @@
+<div
+  x-data
+  x-show="$store.player.episode"
+  x-cloak
+  class="v2-player-bar"
+  role="region"
+  aria-label="{{ 'podcast.v2.player_label' | t }}"
+>
+  <button
+    type="button"
+    class="hidden shrink-0 rounded-md px-2 py-1 text-xs font-semibold text-base-content/70 hover:bg-base-200 sm:inline-flex"
+    @click="$store.player.cyclePlaybackRate()"
+    :aria-label="'Playback rate ' + $store.player.playbackRate + 'x'"
+  >
+    <span x-text="$store.player.playbackRate + 'x'"></span>
+  </button>
+
+  <div class="flex shrink-0 items-center gap-1">
+    <button
+      type="button"
+      class="v2-icon-btn !h-8 !w-8"
+      @click="$store.player.seekBy(-15)"
+      aria-label="{{ 'podcast.v2.rewind_15' | t }}"
+    >
+      <span class="text-[10px] font-bold">15</span>
+    </button>
+    <button
+      type="button"
+      class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-content hover:opacity-90"
+      @click="$store.player.toggle()"
+      :aria-label="$store.player.playing ? 'Pause' : 'Play'"
+    >
+      <span x-show="$store.player.playing" aria-hidden="true">❚❚</span>
+      <span x-show="!$store.player.playing" aria-hidden="true">▶</span>
+    </button>
+    <button
+      type="button"
+      class="v2-icon-btn !h-8 !w-8"
+      @click="$store.player.seekBy(30)"
+      aria-label="{{ 'podcast.v2.forward_30' | t }}"
+    >
+      <span class="text-[10px] font-bold">30</span>
+    </button>
+  </div>
+
+  <div class="flex min-w-0 flex-1 items-center gap-3">
+    <template x-if="$store.player.episode">
+      <a
+        :href="$store.player.episode.path"
+        data-turbo-frame="main-content-frame"
+        data-turbo-action="advance"
+        class="hidden h-10 w-10 shrink-0 overflow-hidden rounded-md bg-base-200 ring-1 ring-base-content/10 sm:block"
+        :title="$store.player.episode.title"
+      >
+        <span class="flex h-full w-full items-center justify-center text-xs text-base-content/40" aria-hidden="true">♪</span>
+      </a>
+    </template>
+
+    <div class="min-w-0 flex-1">
+      <a
+        :href="$store.player.episode ? $store.player.episode.path : '#'"
+        data-turbo-frame="main-content-frame"
+        data-turbo-action="advance"
+        class="block truncate text-sm font-semibold text-base-content"
+        x-text="$store.player.episode ? $store.player.episode.title : ''"
+      ></a>
+      <input
+        type="range"
+        min="0"
+        :max="$store.player.duration || 0"
+        step="1"
+        class="v2-player-range mt-1.5 w-full"
+        :value="$store.player.seeking ? $store.player.seeking : $store.player.currentTime"
+        @input="$store.player.setSeeking($event.target.value)"
+        @change="$store.player.commitSeek($event.target.value)"
+        aria-label="{{ 'podcast.v2.progress' | t }}"
+      />
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class="v2-icon-btn hidden sm:inline-flex"
+    @click="$store.player.toggleMute()"
+    :aria-label="$store.player.muted ? 'Unmute' : 'Mute'"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" :class="$store.player.muted ? 'opacity-50' : ''" aria-hidden="true">
+      <path d="M12 6 8 10H6a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2l4 4V6Z" />
+      <path d="M16 8a4 4 0 0 1 0 8M19 5a7 7 0 0 1 0 14" />
+    </svg>
+  </button>
+</div>
