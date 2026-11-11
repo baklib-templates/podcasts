@@ -1,4 +1,28 @@
 {
+  "context_schema": {
+    "label": "播客节目",
+    "types": {
+      "episode": {
+        "label": "节目",
+        "fields": {
+          "topics": {
+            "label": "节目主题"
+          },
+          "summary": {
+            "label": "节目简介"
+          },
+          "takeaways": {
+            "label": "本期要点"
+          }
+        },
+        "relations": {
+          "related_to": {
+            "label": "相关节目"
+          }
+        }
+      }
+    }
+  },
   "theme_label": "Podcasts",
   "theme_description": "一个播客、音频集合站",
   "templates": {
@@ -111,6 +135,25 @@
         "info": "支持HTML标签和有限的TailwindCSS样式代码",
         "placeholder": "通常在这里插入访问统计、客服机器人等嵌入代码"
       }
+    }
+  },
+  "weixin_share": {
+    "title": "微信配置",
+    "weixin_app_id": {
+      "label": "开发者ID(AppID)",
+      "info": "<a href='https://mp.weixin.qq.com/cgi-bin/frame'>微信公众号/设置与开发/开发接口管理</a>中获取 "
+    },
+    "weixin_app_secret": {
+      "label": "开发者密码(AppSecret)",
+      "info": "<a href='https://mp.weixin.qq.com/cgi-bin/frame'>微信公众号/设置与开发/开发接口管理</a>中获取"
+    },
+    "weixin_enabled": {
+      "label": "是否启用微信分享",
+      "info": "提供站点页面微信分享的能力</br>请在微信公众号中配置ip白名单（ip: ${service_ip}）, 配置后将有一段时间的生效延迟。</br>检查是否开启微信分享权限，微信公众号/设置与开发/开发接口管理: <a href='https://mp.weixin.qq.com/cgi-bin/frame'>网页服务/分享接口</a>。</br>分享链接是否为卡片：从卡片形式进入分享卡片形式，链接形式进入分享链接形式；网页初始链接分享可由公司的服务号中或收藏后进行卡片分享（此规则为微信分享限制）。"
+    },
+    "weixin_debug": {
+      "label": "是否开启debug提示",
+      "info": "请仅在配置阶段开启此选项；开启后在访问前端站点时若未正确配置微信分享将自动提示错误信息"
     }
   }
 }

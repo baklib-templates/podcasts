@@ -1,0 +1,92 @@
+skill:
+  version: 2
+  preset: podcasts
+  writer: site_pages
+  summary: 节目、期数、音频播放及节目介绍。
+  home:
+    template: index
+    hero_fields: []
+    slots: 0
+  navigation: {}
+  site_fields:
+  - poster_image_url
+  - podcast_title
+  - podcast_tagline
+  - podcast_about
+  - show_episode_cover
+  page_types:
+  - template: channel
+    role: channel
+    writable:
+    - description
+  - template: channel.v2
+    role: channel.v2
+    writable:
+    - description
+    - header_color
+    - cover_image_url
+  - template: feedback_error_turbo_stream
+    role: feedback_error_turbo_stream
+    writable: []
+  - template: feedback_success_turbo_stream
+    role: feedback_success_turbo_stream
+    writable: []
+  - template: feedback_turbo_stream
+    role: feedback_turbo_stream
+    writable: []
+  - template: index
+    role: index
+    writable: []
+  - template: index.v2
+    role: index.v2
+    writable: []
+  - template: page
+    role: page
+    writable:
+    - title
+    - episode_number
+    - description
+    - audio_url
+    - audio_asset
+    - tags
+    - thumb_image_url
+    - content
+  - template: page.v2
+    role: page.v2
+    writable:
+    - title
+    - episode_number
+    - description
+    - audio_url
+    - audio_asset
+    - tags
+    - thumb_image_url
+    - content
+  - template: search
+    role: search
+    writable: []
+  - template: tag
+    role: tag
+    writable: []
+  limits:
+    channels: 20
+    pages: 100
+  industries: []
+  content_model:
+    hierarchy:
+    - channel
+    - page
+    body_field: content
+    default_access: public
+    source_of_truth: site_pages
+    boundaries:
+    - 不提供录音制作或第三方平台分发
+  customization:
+    mode: organization_candidate
+    protected:
+    - content_model
+    - source_references
+    - permissions
+    - identity
+    - forms
+    - dam_references

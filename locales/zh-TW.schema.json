@@ -1,4 +1,28 @@
 {
+  "context_schema": {
+    "label": "播客節目",
+    "types": {
+      "episode": {
+        "label": "節目",
+        "fields": {
+          "topics": {
+            "label": "節目主題"
+          },
+          "summary": {
+            "label": "節目簡介"
+          },
+          "takeaways": {
+            "label": "本期要點"
+          }
+        },
+        "relations": {
+          "related_to": {
+            "label": "相關節目"
+          }
+        }
+      }
+    }
+  },
   "theme_label": "Podcasts",
   "theme_description": "一個播客、音訊集合站",
   "templates": {
@@ -111,6 +135,25 @@
         "info": "支持HTML標籤和有限的TailwindCSS樣式代碼",
         "placeholder": "通常在這裡插入訪問統計、客服機器人等嵌入代碼"
       }
+    }
+  },
+  "weixin_share": {
+    "title": "微信配寘",
+    "weixin_app_id": {
+      "label": "開發者ID（AppID）",
+      "info": "<a href='https://mp.weixin.qq.com/cgi-bin/frame'>微信公眾號/設定與開發/開發介面管理</a>中獲取"
+    },
+    "weixin_app_secret": {
+      "label": "開發者密碼（AppSecret）",
+      "info": "在<a href='https://mp.weixin.qq.com/cgi-bin/frame'>微信公眾號/設定與開發/開發介面管理</a>取得"
+    },
+    "weixin_enabled": {
+      "label": "是否啟用微信分享",
+      "info": "提供網站頁面微信分享的能力</br>1.請在微信公眾號中配寘ip白名單（ip: ${service_ip}），配寘後將有一段時間的生效延遲。 </br>2.檢查是否開啟微信分享許可權，微信公眾號/設定與開發/開發介面管理：<a href='https://mp.weixin.qq.com/cgi-bin/frame'>網頁服務/分享介面</a>。</br>3.分享連結是否為卡片：從卡片形式進入分享卡片形式，連結形式進入分享連結形式； 網頁初始連結分享可由公司的服務號中或收藏後進行卡片分享（此規則為微信分享限制）。"
+    },
+    "weixin_debug": {
+      "label": "是否開啟debug提示",
+      "info": "請僅在配寘階段開啟此選項； 開啟後在訪問前端網站時若未正確配寘微信分享將自動提示錯誤資訊"
     }
   }
 }

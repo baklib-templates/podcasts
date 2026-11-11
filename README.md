@@ -1,10 +1,17 @@
 # Baklib CMS — Podcasts theme
 
-A lightweight **podcast / audio collection** theme for Baklib-powered sites. It ships with two home layouts (card grid and list), content pages with tags and optional feedback, search, and Tailwind CSS–based styling.
+[简体中文](README.zh-CN.md) | English
 
-Default **seed data is in English** (`site.language: en`) so new sites start with an international-friendly baseline. Switch the language in `seeds/001_site.yml` if you prefer another default.
+This is a podcast and audio collection (identifier `podcasts`, scope cms), with episodes as site pages from a home page to a channel to an episode. Use it for one show, seasons, or an audio archive. Do not use it for a product catalog or a documentation site.
 
----
+| File | Read it to learn |
+| --- | --- |
+| [docs/README.md](docs/README.md) | Index of the docs |
+| [docs/overview.md](docs/overview.md) | What it is, and when to use it |
+| [docs/structure.md](docs/structure.md) | Home, channels, and episodes |
+| [docs/schema.md](docs/schema.md) | Field ids, and which ones are writable |
+| [docs/usage.md](docs/usage.md) | How to set the site up |
+| [docs/activation.yml](docs/activation.yml) | Get-started arrangement recipe |
 
 ## Features
 

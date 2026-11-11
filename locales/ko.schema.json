@@ -1,4 +1,28 @@
 {
+  "context_schema": {
+    "label": "팟캐스트",
+    "types": {
+      "episode": {
+        "label": "에피소드",
+        "fields": {
+          "topics": {
+            "label": "에피소드 주제"
+          },
+          "summary": {
+            "label": "에피소드 소개"
+          },
+          "takeaways": {
+            "label": "이번 회 요점"
+          }
+        },
+        "relations": {
+          "related_to": {
+            "label": "관련 에피소드"
+          }
+        }
+      }
+    }
+  },
   "theme_label": "podcasts",
   "theme_description": "팟캐스트·오디오 컬렉션 사이트.",
   "templates": {
@@ -111,6 +135,25 @@
         "info": "HTML 태그와 제한된 TailwindCSS 스타일 코드 지원",
         "placeholder": "일반적으로 분석, 고객 서비스 봇 등을 삽입"
       }
+    }
+  },
+  "weixin_share": {
+    "title": "위챗 설정",
+    "weixin_app_id": {
+      "label": "개발자 ID(AppID)",
+      "info": "<a href='https://mp.weixin.qq.com/cgi-bin/frame'> 위챗 대중번호/설정 및 개발/개발 인터페이스 관리 </a> 에서 획득"
+    },
+    "weixin_app_secret": {
+      "label": "개발자 암호(AppSecret)",
+      "info": "<a href='https://mp.weixin.qq.com/cgi-bin/frame'>WeChat 공식 계정/설정 및 개발/개발 인터페이스 관리</a>에서 획득"
+    },
+    "weixin_enabled": {
+      "label": "위챗 공유 사용 여부",
+      "info": "사이트 페이지 위챗 공유 능력 제공 </br>위챗 대중번호에 ip 화이트리스트 (ip: ${service_ip}) 를 설정하십시오. 설정 후 일정 기간 효력이 지연됩니다.</br>2.위챗 공유 권한 설정 여부, 위챗 대중번호/설정 및 개발/개발 인터페이스 관리: <a href='https://mp.weixin.qq.com/cgi-bin/frame'> 웹 서비스 / 공유 인터페이스 </a>. </br>공유 링크가 카드인지 여부: 카드 형식에서 공유 카드 형식으로, 링크 형식에서 공유 링크 형식으로,웹 페이지의 초기 링크 공유는 회사의 서비스 번호나 소장 후에 카드 공유를 진행할 수 있습니다 (이 규칙은 위챗 공유 제한입니다)."
+    },
+    "weixin_debug": {
+      "label": "debug 프롬프트 설정 여부",
+      "info": "구성 단계에서만 이 옵션을 켜십시오.오픈 후 프런트엔드 사이트에 액세스할 때 위챗 공유를 제대로 구성하지 않으면 오류 메시지가 자동으로 표시됩니다."
     }
   }
 }

@@ -73,6 +73,50 @@
     "description": "t:schema.templates.page.description",
     "thumb_url": "images/theme/${lang}/page_poster.png",
     "sub_page_templates": ["page"],
+    "context_schema": {
+      "key": "podcasts",
+      "label": "t:schema.context_schema.label",
+      "version": 1,
+      "content_types": [
+        {
+          "key": "episode",
+          "label": "t:schema.context_schema.types.episode.label",
+          "templates": [
+            "page",
+            "page.v2"
+          ],
+          "fields": [
+            {
+              "key": "topics",
+              "label": "t:schema.context_schema.types.episode.fields.topics.label",
+              "type": "tags",
+              "policy": "ai_auto"
+            },
+            {
+              "key": "summary",
+              "label": "t:schema.context_schema.types.episode.fields.summary.label",
+              "type": "textarea",
+              "policy": "ai_suggest"
+            },
+            {
+              "key": "takeaways",
+              "label": "t:schema.context_schema.types.episode.fields.takeaways.label",
+              "type": "textarea",
+              "policy": "ai_suggest"
+            }
+          ],
+          "relations": [
+            {
+              "type": "related_to",
+              "label": "t:schema.context_schema.types.episode.relations.related_to.label",
+              "inverse": "related_to",
+              "cardinality": "many",
+              "policy": "suggest"
+            }
+          ]
+        }
+      ]
+    },
     "settings": [
       {
         "id": "title",

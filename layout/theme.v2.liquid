@@ -59,6 +59,8 @@
         --color-error-content: hsl(var(--theme-color-error-content-dark));
       }
     </style>
+    {% weixin_share_tag app_id: site.settings.weixin_app_id, app_secret: site.settings.weixin_app_secret, debug: site.settings.weixin_debug, enabled: site.settings.weixin_enabled %}
+
   </head>
   <body id="js--body" class="flex h-dvh overflow-hidden bg-base-200 text-base-content">
     {% render 'v2/shell_sidebar' %}

@@ -1,10 +1,17 @@
 # Baklib CMS — 播客主题（简体中文说明）
 
-面向 Baklib 站点的轻量 **播客 / 音频集合** 主题：提供两种首页（卡片网格与列表）、带标签与可选反馈的内容页、搜索与标签列表页，样式基于 Tailwind CSS。
+[English](README.md) | 简体中文
 
-为便于国际化，**初始化种子数据默认使用英文**（`site.language: en`）。若首发站点需要简体中文或其它语言，请在 `seeds/001_site.yml` 中修改 `language`，并据此翻译 `seeds/002_pages.yml` 与自定义 HTML 片段。
+这是播客与音频合集（标识 `podcasts`，范围 cms），节目写在站点页面上：首页下面是栏目，栏目里是单集。适合一档节目、分季归档，或把音频收成合集。不适合产品目录，也不适合产品文档。
 
----
+| 文件 | 读它是为了 |
+| --- | --- |
+| [docs/README.md](docs/README.md) | 分册目录 |
+| [docs/overview.md](docs/overview.md) | 是什么、什么场合用 |
+| [docs/structure.md](docs/structure.md) | 首页、栏目和单集 |
+| [docs/schema.md](docs/schema.md) | 字段 id，以及能不能改 |
+| [docs/usage.md](docs/usage.md) | 建站后怎么配 |
+| [docs/activation.yml](docs/activation.yml) | 快速开始的编排配方 |
 
 ## 功能概览
 

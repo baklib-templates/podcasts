@@ -1,0 +1,16 @@
+apply: site_pages
+page_template: page
+ask_path: -/search
+arrangements:
+  - key: original
+    title: 按来源路径排节目
+    description: 网址或文件夹原来的层级保留，单集仍留在原来的季里。
+    rule: original
+  - key: top_folder
+    title: 每个目录一套节目
+    description: 每个顶层目录收成一个栏目，这一季的单集放进去。
+    rule: top_folder
+  - key: flat
+    title: 单集直接挂在首页
+    description: 导入的单集都放在首页下面，不再按目录分季。
+    rule: flat
